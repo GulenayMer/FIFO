@@ -1,9 +1,9 @@
 import Home from "../pages/Home";
-import Profile from "../pages/Proifle";
-import Menu from "../pages/Menu";
-import Dishes from "../pages/Dishes";
-import Inventory from "../pages/Inventory";
-import InventoryItems from "../pages/InventoryItems";
+import Profile from "../pages/private/Profile";
+import Menu from "../pages/private/Menu";
+import Dishes from "../pages/private/Dishes";
+import Inventory from "../pages/private/Inventory";
+import InventoryItems from "../pages/private/InventoryItems";
 import Contact from "../pages/Contact";
 import Error from "../pages/Error";
 
@@ -13,7 +13,7 @@ import {
 } from "react-router-dom";
 
 
-export const router = createBrowserRouter([
+const router = createBrowserRouter([
 	{
 		path: "/",
 		element: (
@@ -63,3 +63,5 @@ export const router = createBrowserRouter([
 		)
 	},
 ]);
+
+export default router; 
