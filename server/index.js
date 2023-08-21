@@ -1,6 +1,6 @@
 require('dotenv/config');
+const connectDB = require('./config/database');
 const express = require('express');
-const mongoose = require('mongoose');
 const InventoryItem = require('./models/inventoryItem');
 
 //
@@ -22,15 +22,7 @@ app.post('/inventoryItem', async (req, res) => {
   }
 });
 
-const connectDB = async () => {
-  try {
-    console.log('Connection with mongodb');
-    await mongoose.connect(process.env.MONGODB_ATLAS_CONNECTION_STRING);
-  } catch (error) {
-    console.log('Mongodb Connection Error', error);
-    process.exit(1);
-  }
-};
+
 
 connectDB().then(() => {
   app.listen(PORT, () => console.log('🚀 ~ file: index.js:11 ~ PORT:', PORT));

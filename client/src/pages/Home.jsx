@@ -1,8 +1,9 @@
 
+import DefaultLayout from '../components/layout/DefaultLayout'
 
 const Home = () => {
   return (
-	<div>Home</div>
+	<DefaultLayout></DefaultLayout>
   )
 }
 
