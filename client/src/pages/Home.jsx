@@ -1,10 +1,10 @@
-
-import DefaultLayout from '../components/layout/DefaultLayout'
+import DefaultLayout from '../components/layout/DefaultLayout';
 
 const Home = () => {
   return (
-	<DefaultLayout></DefaultLayout>
-  )
-}
-
-export default Home
+    <DefaultLayout>
+      <h1>Home</h1>
+    </DefaultLayout>
+  );
+};
+export default Home;

@@ -1,8 +1,11 @@
+import DefaultLayout from '../../components/layout/DefaultLayout';
 
 const Inventory = () => {
   return (
-	<div>Inventory</div>
-  )
-}
+    <DefaultLayout>
+      <h1>Inventory</h1>
+    </DefaultLayout>
+  );
+};
 
-export default Inventory
+export default Inventory;

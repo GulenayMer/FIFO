@@ -1,16 +1,17 @@
-import Navigation from '../Navigation'
-import Main from './Main'
-import Footer from './Footer'
+import Navigation from '../Navigation';
+import Footer from './Footer';
 
-
-const DefaultLayout = ({children}) => {
+export const DefaultLayout = ({ children }) => {
   return (
-	<>
-	<Navigation></Navigation>
-	<Main> {children} </Main>
-	<Footer></Footer>
-	</>
-  )
-}
+    <div>
+      <header>
+        <Navigation />
+      </header>
+      <main>{children}</main>
 
-export default DefaultLayout
+      <footer>
+        <Footer />
+      </footer>
+    </div>
+  );
+};

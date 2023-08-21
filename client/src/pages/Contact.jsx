@@ -1,8 +1,11 @@
+import DefaultLayout from '../components/layout/DefaultLayout';
 
 const Contact = () => {
   return (
-	<div>Contact</div>
-  )
-}
+    <DefaultLayout>
+      <h1>Contact</h1>
+    </DefaultLayout>
+  );
+};
 
-export default Contact
+export default Contact;

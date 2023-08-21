@@ -1,8 +1,11 @@
+import DefaultLayout from '../../components/layout/DefaultLayout';
 
 const Dishes = () => {
   return (
-	<div>Dishes</div>
-  )
-}
+    <DefaultLayout>
+      <h1>Dishes</h1>
+    </DefaultLayout>
+  );
+};
 
-export default Dishes
+export default Dishes;
