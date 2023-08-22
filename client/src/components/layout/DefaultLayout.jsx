@@ -1,7 +1,8 @@
 import Navigation from '../Navigation';
 import Footer from './Footer';
 
-export const DefaultLayout = ({ children }) => {
+const DefaultLayout = ({ children }) => {
+  console.log(children);
   return (
     <div>
       <header>
@@ -15,3 +16,5 @@ export const DefaultLayout = ({ children }) => {
     </div>
   );
 };
+
+export default DefaultLayout;
