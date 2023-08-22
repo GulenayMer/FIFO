@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
-
-// 
+//
 const userSchema = mongoose.Schema(
 	{
 		name: {
@@ -24,7 +23,18 @@ const userSchema = mongoose.Schema(
 			minLength: [8, 'Password Must Be 8 characters or more!'],
 			required: [true, 'Password is Required!'],
 		},
-	
+		inventoryItemCollection:[{
+			type: mongoose.Schema.Types.ObjectId, ref: 'InventoryItem'
+		}],
+		inventoryCollection:[{
+			type: mongoose.Schema.Types.ObjectId, ref: 'Inventory'
+		}],
+		DishCollection:[{
+			type: mongoose.Schema.Types.ObjectId, ref: 'Dish'
+		}],
+		MenuCollection:[{
+			type: mongoose.Schema.Types.ObjectId, ref: 'Menu'
+		}]
 	},
 	{
 		timestamps: true // created at, update at

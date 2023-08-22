@@ -1,16 +1,36 @@
 require('dotenv/config');
 const connectDB = require('./config/database');
 const express = require('express');
-const InventoryItem = require('./models/inventoryItem');
+const usersRouter = require('./routes/users');
+const inventoryItemsRouter = require('./routes/inventoryItems');
+
 
 //
 const app = express();
 const PORT = 8000;
 
 app.use(express.json());
-//
 
-app.post('/inventoryItem', async (req, res) => {
+// ROUTES 
+
+// TODO : 
+/**
+ * 1) Import The User Routes
+ * 2) Import The Inventory Item Routes
+ * 3) Import The Inventory Routes
+ * 4) Import The Dish Routes
+ * 5) Import The Menu Routes
+ */
+
+// This will be the baseURL : localhost:8000/api/user
+app.use('/api/user', usersRouter);
+app.use('/api/inventoryItems', inventoryItemsRouter);
+
+
+
+
+
+/* app.post('/inventoryItem', async (req, res) => {
   try {
     const newInventoryItem = await InventoryItem.create(req.body);
 
@@ -20,7 +40,7 @@ app.post('/inventoryItem', async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message, errors: error.errors });
   }
-});
+}); */
 
 
 

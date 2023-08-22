@@ -46,21 +46,28 @@ const dishSchema = mongoose.Schema(
       default: 'N/A',
       required: [true, 'Category is Required'],
     },
-    dishPrice: {
-      type: Array, //Array of numbers (Sum of array will be final dish-price)
-    },
     ingredients: [
       {
         inventory: { type: mongoose.Schema.Types.ObjectId, ref: 'Inventory' },
-        name: String,
-        amountNeeded: String,
-        measurement: ['Gram', 'Kilogram', 'Millilitre', 'Liter'],
-        price: Number,
+        amountNeeded: {
+			measurement:{
+				type:String,
+				enum: ['Gram', 'Kilogram', 'Millilitre', 'Liter']
+			},
+			price: Number,
+			quantity: Number,
+		},
       },
     ],
+	dishPrice: {
+		type:Number,
+	},
+	user:{
+			type: mongoose.Schema.Types.ObjectId, ref: 'User'
+	}
   },
   {
-    timestamps: true, // created at, update at penis hihihihi
+    timestamps: true, // created at, update at penis hihihihi why not? because makes no sense. It's what they call a joke
   }
 );
 
