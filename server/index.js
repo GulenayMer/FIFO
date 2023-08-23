@@ -1,49 +1,37 @@
 require('dotenv/config');
 const connectDB = require('./config/database');
 const express = require('express');
+const cors = require('cors');
 const usersRouter = require('./routes/users');
 const inventoryItemsRouter = require('./routes/inventoryItems');
-
+const menuRouter = require('./routes/menus');
+const dishRouter = require('./routes/dishes')
+const path = require('path'); // conects the BE to the FE
 
 //
 const app = express();
 const PORT = 8000;
-
 app.use(express.json());
 
-// ROUTES 
+//Deployment
+if(process.env.NODE_ENV ==='production'){
+	const buildPath = path.join(_dirname,'../client/dist');
+	app.use(express.static(buildPath));
 
-// TODO : 
-/**
- * 1) Import The User Routes
- * 2) Import The Inventory Item Routes
- * 3) Import The Inventory Routes
- * 4) Import The Dish Routes
- * 5) Import The Menu Routes
- */
+	app.get('*',(req,res)=> res.sendFile(path.join(buildPath,'index.html')))
+}
 
+
+
+// ROUTES : 
 // This will be the baseURL : localhost:8000/api/user
 app.use('/api/user', usersRouter);
 app.use('/api/inventoryItems', inventoryItemsRouter);
-
-
-
-
-
-/* app.post('/inventoryItem', async (req, res) => {
-  try {
-    const newInventoryItem = await InventoryItem.create(req.body);
-
-    res
-      .status(201)
-      .json({ message: 'newInventoryItem created!', newInventoryItem });
-  } catch (error) {
-    res.status(500).json({ message: error.message, errors: error.errors });
-  }
-}); */
+app.use('/api/dishes', dishRouter);
+app.use('/api/menu', menuRouter);
 
 
 
 connectDB().then(() => {
-  app.listen(PORT, () => console.log('🚀 ~ file: index.js:11 ~ PORT:', PORT));
+	app.listen(PORT, () => console.log('🚀 ~ file: index.js:11 ~ PORT:', PORT));
 });

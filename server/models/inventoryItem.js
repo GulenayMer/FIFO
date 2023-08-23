@@ -58,6 +58,7 @@ const InventoryItemSchema = mongoose.Schema(
 						type: Number,
 						required: [true, 'Quantity is Required'],
 					},
+					
 				}
 			}
 		],

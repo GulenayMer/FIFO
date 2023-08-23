@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const dishSchema = mongoose.Schema(
+const DishSchema = mongoose.Schema(
   {
     name: {
       type: String,
@@ -67,9 +67,9 @@ const dishSchema = mongoose.Schema(
 	}
   },
   {
-    timestamps: true, // created at, update at penis hihihihi why not? because makes no sense. It's what they call a joke
+    timestamps: true, // created at, update at
   }
 );
 
-const model = mongoose.model('Dish', dishSchema);
+const model = mongoose.model('Dish', DishSchema);
 module.exports = model;
