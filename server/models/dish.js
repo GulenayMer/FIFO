@@ -11,14 +11,14 @@ const DishSchema = mongoose.Schema(
     },
     typeOfDish: {
       type: String,
-      enum: ['N/A', 'Starter', 'Main', 'Dessert', 'Side'], // limits the user from puttng anythig else than what we have here
-      default: 'N/A',
+      enum: ['none', 'Starter', 'Main', 'Dessert', 'Side'], // limits the user from puttng anythig else than what we have here
+      default: 'none',
       required: [true, 'Type of dish is Required'],
     },
     allergenics: {
-      type: Array,
+      type: String,
       enum: [
-        'N/A',
+        'none',
         'Dairy/Lactose',
         'Nuts',
         'Peanuts',
@@ -29,13 +29,13 @@ const DishSchema = mongoose.Schema(
         'Sugar',
         'Proteins',
       ],
-      default: 'N/A',
+      default: 'none',
       required: [true, 'Allergenics is Required'],
     },
     category: {
       type: String,
       enum: [
-        'N/A',
+        'none',
         'Vegan',
         'Vegetarien',
         'Pescetarian',
@@ -43,28 +43,29 @@ const DishSchema = mongoose.Schema(
         'Poultry',
         'Surf & Turf',
       ],
-      default: 'N/A',
+      default: 'none',
       required: [true, 'Category is Required'],
     },
     ingredients: [
       {
         inventory: { type: mongoose.Schema.Types.ObjectId, ref: 'Inventory' },
         amountNeeded: {
-			measurement:{
-				type:String,
-				enum: ['Gram', 'Kilogram', 'Millilitre', 'Liter']
-			},
-			price: Number,
-			quantity: Number,
-		},
+          measurement: {
+            type: String,
+            enum: ['Gram', 'Kilogram', 'Millilitre', 'Liter'],
+          },
+          price: Number,
+          quantity: Number,
+        },
       },
     ],
-	dishPrice: {
-		type:Number,
-	},
-	user:{
-			type: mongoose.Schema.Types.ObjectId, ref: 'User'
-	}
+    dishPrice: {
+      type: Number,
+    },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+    },
   },
   {
     timestamps: true, // created at, update at
