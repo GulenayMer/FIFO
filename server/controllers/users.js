@@ -64,7 +64,7 @@ const login = async (req, res) => {
  // This is to keep track of the logged in user?? I guesss
  const getLoggedInUser = async (req, res) => {
 	try{
-		const currentUser = User.findOne( {_id: req.user._id} ).select('-password')
+		const currentUser = User.findOne( {_id: req.user._id} ).select('-password')  // or .select('_id email name')
 		res.json({currentUser});
 		
 	} catch(error) {
