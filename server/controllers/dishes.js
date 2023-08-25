@@ -4,6 +4,7 @@ const Dish = require('../models/dish');
 const createDish = async (req, res) => {
   try {
     const newDish = await Dish.create(req.body);
+    // .populate('inventoryItem', {inUse: true});
     res.status(201).json({ message: 'newDish created!', newDish });
   } catch (error) {
     res.status(500).json({ message: error.message, errors: error.errors });
@@ -27,6 +28,7 @@ const getDishById = async (req, res) => {
       params: { id },
     } = req;
     const item = await Dish.findById(id);
+    //.populate('ingredients', 'name'); this will be for the menu
     console.log('item:', item);
     if (!item) {
       res.status(404).json({ message: 'Dish not found' });

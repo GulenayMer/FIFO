@@ -27,6 +27,7 @@ const getMenuById = async (req, res) => {
       params: { id },
     } = req;
     const item = await Menu.findById(id);
+    //.populate('dish', 'name');
     console.log('item:', item);
     if (!item) {
       res.status(404).json({ message: 'Item not found' });

@@ -17,7 +17,7 @@ const {
 router.use(authenticate);
 //
 router.get('/', getAllDishes);
-router.post('/', createDish); // localhost:8000/api/dish
+router.post('/', createDish); // localhost:8000/api/dishes
 router.get('/:id', getDishById); // localhost:8000/api/dish/:id
 router.put('/:id', updateDish); // localhost:8000/api/dish/:id
 router.delete('/:id', deleteDish); // localhost:8000/api/dish/:id

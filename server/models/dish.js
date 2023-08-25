@@ -11,33 +11,35 @@ const DishSchema = mongoose.Schema(
     },
     typeOfDish: {
       type: String,
-      enum: ['none', 'Starter', 'Main', 'Dessert', 'Side'], // limits the user from puttng anythig else than what we have here
+      enum: ['none', 'Starter', 'Main', 'Dessert', 'Side'], // limits the user from putting anything else than what we have here
       default: 'none',
       required: [true, 'Type of dish is Required'],
     },
-    allergenics: {
-      type: String,
-      enum: [
-        'none',
-        'Dairy/Lactose',
-        'Nuts',
-        'Peanuts',
-        'Soy',
-        'Gluten',
-        'Shellfish',
-        'Seasame',
-        'Sugar',
-        'Proteins',
-      ],
-      default: 'none',
-      required: [true, 'Allergenics is Required'],
-    },
+    allergenics: [
+      {
+        type: String,
+        enum: [
+          'none',
+          'Dairy/Lactose',
+          'Nuts',
+          'Peanuts',
+          'Soy',
+          'Gluten',
+          'Shellfish',
+          'Sesame',
+          'Sugar',
+          'Proteins',
+        ],
+        default: 'none',
+        required: [true, 'Allergenics is Required'],
+      },
+    ],
     category: {
       type: String,
       enum: [
         'none',
         'Vegan',
-        'Vegetarien',
+        'Vegetarian',
         'Pescetarian',
         'Meat',
         'Poultry',
@@ -48,15 +50,19 @@ const DishSchema = mongoose.Schema(
     },
     ingredients: [
       {
-        inventory: { type: mongoose.Schema.Types.ObjectId, ref: 'Inventory' },
-        amountNeeded: {
-          measurement: {
-            type: String,
-            enum: ['Gram', 'Kilogram', 'Millilitre', 'Liter'],
-          },
-          price: Number,
-          quantity: Number,
+        InventoryItem: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'InventoryItem',
         },
+
+        measurement: {
+          type: String,
+          enum: ['Gram', 'Kilogram', 'Milliliter', 'Liter'],
+        },
+        price: Number,
+        //this will b populated by a function in the FE on submit when creating the function
+        quantity: Number,
+        //200
       },
     ],
     dishPrice: {
