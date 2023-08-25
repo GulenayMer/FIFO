@@ -16,8 +16,8 @@ const {
 } = require('../controllers/inventoryItems');
 router.use(authenticate);
 //
-router.get('/', getAllInventoryItems); // localhost:8000/api/inventoryItem/
-router.post('/', createInventoryItem); // localhost:8000/api/inventoryItem/:id
+router.get('/', getAllInventoryItems); // localhost:8000/api/inventoryItems/
+router.post('/', createInventoryItem); // localhost:8000/api/inventoryItem
 router.get('/inUse', getInventoryItemByInUse); // localhost:8000/api/inventoryItem/:id
 router.get('/:id', getInventoryItemById); // localhost:8000/api/inventoryItem/:id
 router.put('/:id', updateInventoryItem); // localhost:8000/api/inventoryItem/:id

@@ -90,14 +90,24 @@ const deleteInventoryItem = async (req, res) => {
     const {
       params: { id },
     } = req;
-    const deletedItem = await InventoryItem.findOneAndDelete({
+
+    const deletedItem = await InventoryItem.findOneAndDelete({ _id: id });
+    if (!deletedItem) {
+      res.status(404).json({ message: 'Item not found' });
+    } else {
+      const deletedItem1 = deletedItem;
+      console.log(deletedItem1);
+      res.json(deletedItem);
+    }
+    /* const deletedItem = await InventoryItem.findOneAndDelete({
       user: req.user._id,
       id,
     });
     if (!deletedItem) {
-      res.status(404).json({ message: ' Item not found' });
-    }
-    res.json(deletedItem);
+      res
+        .status(200)
+        .json({ message: `${deletedItem.body.name} was deleted!` });
+    }*/
   } catch (error) {
     res.status(500).json({ message: error.message, errors: error.errors });
   }

@@ -42,19 +42,19 @@ const createUser = async (req, res) => {
 const login = async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    res.status(400).json({ message: 'Invalid login attempt' });
+    res.status(400).json({ message: '1 Invalid login attempt' });
   }
   try {
     const currentUser = await User.findOne({ email });
     if (!currentUser) {
-      res.status(404).json({ message: 'Invalid login attempt' });
+      res.status(404).json({ message: '2 Invalid login attempt' });
     } else {
       const isPasswordValid = await bcrypt.compare(
         password,
         currentUser.password
       );
       if (!isPasswordValid) {
-        res.status(400).json({ message: 'Invalid login attempt' });
+        res.status(400).json({ message: '3 Invalid login attempt' });
       } else {
         const user = {
           _id: currentUser._id,
