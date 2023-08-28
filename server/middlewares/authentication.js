@@ -13,9 +13,11 @@ const authenticate = async (req, res, next) => {
       req.user = user;
       next();
     } else {
+		console.log('whz here');
       res.status(403).json({ message: 'Forbidden' });
     }
   } catch (error) {
+	console.log('current use rerror');
     next(error);
   }
 };
