@@ -2,7 +2,6 @@ import Navigation from '../Navigation';
 import Footer from './Footer';
 
 const DefaultLayout = ({ children }) => {
-  console.log(children);
   return (
     <div>
       <header>

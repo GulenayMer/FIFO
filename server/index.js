@@ -7,7 +7,7 @@ const usersAuthRouter = require('./routes/users');
 const inventoryItemsRouter = require('./routes/inventoryItems');
 const menuRouter = require('./routes/menus');
 const dishRouter = require('./routes/dishes');
-const path = require('path'); // conects the BE to the FE
+const path = require('path'); // connects the BE to the FE
 //
 const app = express();
 const PORT = 8000;

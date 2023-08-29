@@ -16,6 +16,7 @@ const authenticate = async (req, res, next) => {
       res.status(403).json({ message: 'Forbidden' });
     }
   } catch (error) {
+    console.log('current use error');
     next(error);
   }
 };

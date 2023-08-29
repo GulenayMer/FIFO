@@ -3,7 +3,9 @@ import DefaultLayout from '../../components/layout/DefaultLayout';
 const Menu = () => {
   return (
     <DefaultLayout>
-      <h1>Menu</h1>
+      <div>
+        <h1>Menu</h1>
+      </div>
     </DefaultLayout>
   );
 };
