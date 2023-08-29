@@ -29,5 +29,4 @@ router.put('/:id', updateUser); // localhost:8000/api/user/auth/:id
 router.delete('/:id', deleteUser); // localhost:8000/api/user/auth/:id
 router.post('/logout', logout); // localhost:8000/api/user/auth/logout
 
-
 module.exports = router;

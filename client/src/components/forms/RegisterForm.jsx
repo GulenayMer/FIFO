@@ -77,7 +77,7 @@ const RegisterForm = () => {
             onChange={handleChange}
             required
           />
-          <button>➡️Sign Up⬅️</button>
+          <button>➡️Register⬅️</button>
         </form>
       </>
     );
