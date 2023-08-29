@@ -97,6 +97,7 @@ const getAllUsers = async (req, res) => {
   }
 };
 
+// /api/user/auth/currentUser
 // This is to keep track of the logged in user?? I guess
 const getLoggedInUser = async (req, res) => {
   try {
@@ -104,6 +105,7 @@ const getLoggedInUser = async (req, res) => {
       '-password'
     ); // or .select('_id email name')
     res.json({ currentUser });
+    /// this would be res.json({ user: currentUser });
   } catch (error) {
     res.json({ message: error.message });
   }

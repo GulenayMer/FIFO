@@ -21,3 +21,6 @@ const authenticate = async (req, res, next) => {
   }
 };
 module.exports = authenticate;
+
+// reg - incoming (request)
+// res - outgoing (response)

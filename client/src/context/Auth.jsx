@@ -20,9 +20,10 @@ const AuthProvider = ({ children }) => {
     instance
       .get('/api/user/auth/currentUser')
       .then((res) => {
-        console.log('Current USER ', res.data.user);
-        handleStates(res.data.user, false, null);
-        return <Navigate to="/" />;
+        console.log('Current USER ', res);
+        handleStates(res.data.currentUser, false, null); /// WE NEEDED CURRENT USER AND NOT!!!!! USER!!!!!!!
+        //handleStates(res.data.user, false, null); /// if we wanted it to work here => go to user.js(backend) and change the user to currentUser
+        redirect('/');
       })
       .catch((error) => {
         console.log('currentUser', error);

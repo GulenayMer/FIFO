@@ -7,7 +7,7 @@ const RegisterForm = () => {
   const errors = context.errors;
 
   //Send later to the context function.
-  const [user, setUser] = useState({
+  const [formState, setFormState] = useState({
     name: '',
     email: '',
     password: '',
@@ -16,13 +16,13 @@ const RegisterForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
+    setFormState((prevFormState) => ({ ...prevFormState, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(user);
-    context.handleLogin(user);
+    console.log(formState);
+    context.handleRegister(formState);
   };
 
   if (!context.loading && context.user) {
@@ -40,7 +40,7 @@ const RegisterForm = () => {
           <input
             type="text"
             name="name"
-            value={user.name}
+            value={formState.name}
             onChange={handleChange}
             required
           />
@@ -51,7 +51,7 @@ const RegisterForm = () => {
           <input
             type="email"
             name="email"
-            value={user.email}
+            value={formState.email}
             onChange={handleChange}
             required
           />
@@ -62,7 +62,7 @@ const RegisterForm = () => {
           <input
             type="password"
             name="password"
-            value={user.password}
+            value={formState.password}
             onChange={handleChange}
             required
           />
@@ -73,7 +73,7 @@ const RegisterForm = () => {
           <input
             type="password"
             name="confirmPassword"
-            value={user.confirmPassword}
+            value={formState.confirmPassword}
             onChange={handleChange}
             required
           />
