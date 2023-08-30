@@ -1,8 +1,5 @@
+const MenuForm = () => {
+  return <div>Menu</div>;
+};
 
-const MenuForm  = () => {
-  return (
-	<div>Menu</div>
-  )
-}
-
-export default MenuForm 
+export default MenuForm;

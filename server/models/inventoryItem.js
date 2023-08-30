@@ -13,7 +13,7 @@ const InventoryItemSchema = mongoose.Schema(
     },
     measurement: {
       type: String,
-      enum: ['Gram', 'Kilogram', 'Millilitre', 'Liter', 'Unit'], // validation enum for mongoose obj, kg, gr, lt, ml
+      enum: ['Gram', 'Kilogram', 'Milliliter', 'Liter', 'Unit'], // validation enum for mongoose obj, kg, gr, lt, ml
       required: [true, 'Measurement is Required'],
     },
     price: {
@@ -36,7 +36,7 @@ const InventoryItemSchema = mongoose.Schema(
         'Fish',
         'Seafood',
         'Other',
-        'Polutry',
+        'Poultry',
         'Protein',
       ],
       default: 'N/A',
@@ -65,7 +65,7 @@ const InventoryItemSchema = mongoose.Schema(
           },
           measurement: {
             type: String,
-            enum: ['Gram', 'Kilogram', 'Millilitre', 'Liter'], // validation enum for mongoose obj, kg, gr, lt, ml
+            enum: ['Gram', 'Kilogram', 'Milliliter', 'Liter'], // validation enum for mongoose obj, kg, gr, lt, ml
             required: [true, 'Measurement is Required'],
           },
           price: {

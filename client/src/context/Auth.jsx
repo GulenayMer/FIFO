@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import instance from '../components/axios/axiosInstance';
-import { Navigate, redirect } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
 // instantiation of createContext
 export const AuthContext = createContext();
 
@@ -9,6 +9,9 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [errors, setErrors] = useState(null);
+  const [inventoryItems, setInventoryItems] = useState(null);
+  const [dishes, setDishes] = useState(null);
+  const [menu, setMenu] = useState(null);
 
   const handleStates = (user, loading, errors) => {
     setUser(user);
@@ -31,6 +34,7 @@ const AuthProvider = ({ children }) => {
       });
   }, []);
 
+  //--------------------------- USER ---------------------------//
   const handleLogin = async (user) => {
     setLoading(true);
     try {
@@ -69,6 +73,50 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  //------------------------ INVENTORY ITEM --------------------//
+  // have to get the connection btw backend inventoryItem  & to the form
+  const handleInventoryItem = async (inventoryItems) => {
+    setLoading(true);
+    try {
+      const res = await instance.post('api/inventoryItems', inventoryItems);
+      setInventoryItems(res.data.inventoryItems);
+      setLoading(false);
+      //redirect('/inventoryItems');
+    } catch (error) {
+      console.log(error.response);
+      setInventoryItems(null);
+    }
+  };
+
+  //------------------------ DISH --------------------//
+  const handleDish = async (dishes) => {
+    setLoading(true);
+    try {
+      const res = await instance.post('api/dishes', dishes);
+      setDishes(res.data.dishes);
+      setLoading(false);
+      //redirect('/dishes');
+    } catch (error) {
+      console.log(error.response);
+      setDishes(null);
+    }
+  };
+
+  //------------------------ MENU--------------------//
+  const handleMenu = async (menu) => {
+    setLoading(true);
+    try {
+      const res = await instance.post('api/menu', menu);
+      setMenu(res.data.menu);
+      setLoading(false);
+      //redirect('/dishes');
+    } catch (error) {
+      console.log(error.response);
+      setMenu(null);
+    }
+  };
+
+  //------------------------ PASSING TO GLOBAL STATE --------------------//
   return (
     <AuthContext.Provider
       value={{
@@ -78,6 +126,9 @@ const AuthProvider = ({ children }) => {
         handleLogin,
         handleRegister,
         handleLogout,
+        handleInventoryItem,
+        handleDish,
+        handleMenu,
       }}
     >
       {children}
