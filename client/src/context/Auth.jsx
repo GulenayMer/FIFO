@@ -75,6 +75,7 @@ const AuthProvider = ({ children }) => {
 
   //------------------------ INVENTORY ITEM --------------------//
   // have to get the connection btw backend inventoryItem  & to the form
+
   const handleInventoryItem = async (inventoryItems) => {
     setLoading(true);
     try {
