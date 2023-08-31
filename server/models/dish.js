@@ -9,7 +9,7 @@ const DishSchema = mongoose.Schema(
     description: {
       type: String,
     },
-    typeOfDish: {
+    type: {
       type: String,
       enum: ['none', 'Starter', 'Main', 'Dessert', 'Side'], // limits the user from putting anything else than what we have here
       default: 'none',
@@ -50,7 +50,7 @@ const DishSchema = mongoose.Schema(
     },
     ingredients: [
       {
-        InventoryItem: {
+        inventoryItem: {
           type: mongoose.Schema.Types.ObjectId,
           ref: 'InventoryItem',
         },
@@ -65,7 +65,7 @@ const DishSchema = mongoose.Schema(
         //200
       },
     ],
-    dishPrice: {
+    price: {
       type: Number,
     },
     user: {

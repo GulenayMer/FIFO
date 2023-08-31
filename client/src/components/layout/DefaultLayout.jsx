@@ -1,5 +1,6 @@
-import Navigation from '../Navigation';
-import Footer from './Footer';
+import Navigation from "../Navigation";
+import Footer from "./Footer";
+import DishForm from "../forms/DishForm";
 
 const DefaultLayout = ({ children }) => {
   return (
@@ -8,7 +9,7 @@ const DefaultLayout = ({ children }) => {
         <Navigation />
       </header>
       <main>{children}</main>
-
+      <DishForm />
       <footer>
         <Footer />
       </footer>
