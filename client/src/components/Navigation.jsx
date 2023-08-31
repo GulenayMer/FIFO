@@ -7,7 +7,7 @@ const Navigation = () => {
   console.log('user:', user);
 
   return (
-    <nav className="flex align-middle justify-between items-center w-full  h-10 py-5 px-5 bg-slate-500">
+    <nav className="flex align-middle justify-between items-center w-full  h-10  px-5 bg-slate-500">
       <ul className="flex flex-row justify-between align-middle items-center w-full ">
         <li>
           <NavLink
