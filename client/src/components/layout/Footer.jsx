@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 h-10 rounded-sm">
+    <div className="">
       <div className="w-full mx-auto md:flex md:items-center md:justify-between">
         <span className="text-sm text-gray-200 sm:text-center">
           © 2023
@@ -31,7 +31,7 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-    </footer>
+    </div>
   );
 };
 

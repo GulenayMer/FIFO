@@ -26,7 +26,7 @@ const getMenuById = async (req, res) => {
     const {
       params: { id },
     } = req;
-    const item = await Menu.findById(id);
+    const item = await Menu.findById(id).populate({path: 'dishes', select:'name typeOfDish'});
     //.populate('dish', 'name');
     console.log('item:', item);
     if (!item) {

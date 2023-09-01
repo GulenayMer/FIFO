@@ -1,15 +1,20 @@
-import Navigation from '../Navigation';
+//import Navigation from '../Navigation';
+import SideTest from '../SideTest';
 import Footer from './Footer';
+import NavTest from '../NavTest';
 
 const DefaultLayout = ({ children }) => {
   return (
-    <div className="flex min-h-screen flex-col">
-      <header className="h-10">
-        <Navigation />
+    <div className="grid grid-cols-4  h-screen">
+      <header className='col-span-4 '>
+		<NavTest />
       </header>
-      <main className="flex-1">{children}</main>
+		<aside className="col-span-1 h-full bg-gray-50 border-r-2  border-r-gray-100">
+		<SideTest />
+		</aside>
+    <main className="col-span-3">{children}</main> 
 
-      <footer >
+      <footer className='col-span-4  bg-gray-800 '>
         <Footer />
       </footer>
     </div>
