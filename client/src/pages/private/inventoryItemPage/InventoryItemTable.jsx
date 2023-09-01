@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import instance from '../../../components/axios/axiosInstance';
+import { redirect } from 'react-router-dom';
 
 function InventoryItemTable() {
   const [inventoryItems, setInventoryItems] = useState(null);
@@ -34,12 +35,10 @@ function InventoryItemTable() {
   }, []);
 
   /* 
-    name: '',
-    quantity: '',
-    measurement: '',
-    price: '',
-    category: '',
-    season: '',
+1) when we click on the btn => item that we clicked on // return the item.
+2) move the item into form in order to change it.
+3) track the changes in state on the item that maches the id.
+4) when we submit the form we want to update that spesific item and show it in the items list.
 */
 
   return (
@@ -65,7 +64,7 @@ function InventoryItemTable() {
             <li>{item.category}</li>
             <li>{item.season}</li>
             <li>{item.price}</li>
-            <button>update</button>
+            <button onClick={(e) => {}}>update</button>
             <button>toggle</button>
           </ul>
         ))}

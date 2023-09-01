@@ -5,16 +5,18 @@ import NavTest from '../NavTest';
 
 const DefaultLayout = ({ children }) => {
   return (
-    <div className="grid grid-cols-4  h-screen">
-      <header className='col-span-4 '>
-		<NavTest />
+    <div className="grid grid-rows-[8%,auto,65%] grid-cols-[250px,auto] h-screen">
+      <header className="inline-grid col-span-5  grid-rows-1">
+        <NavTest />
       </header>
-		<aside className="col-span-1 h-full bg-gray-50 border-r-2  border-r-gray-100">
-		<SideTest />
-		</aside>
-    <main className="col-span-3">{children}</main> 
+      <aside className="row-span-4 col-start-1 row-start-2 bg-gray-50 border-r-2 border-r-gray-100 h-full">
+        <SideTest />
+      </aside>
+      <main className=" col-span-4 row-span-8 col-start-2 row-start-2">
+        {children}
+      </main>
 
-      <footer className='col-span-4  bg-gray-800 '>
+      <footer className=" col-span-5  col-start-1 row-start-5 bg-gray-800 ">
         <Footer />
       </footer>
     </div>
