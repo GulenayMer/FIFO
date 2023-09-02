@@ -1,19 +1,20 @@
 import Logo from '../assets/Avatar.png'
 import { AuthContext } from '../context/Auth';
 import { useContext } from 'react';
+import {HiHand} from 'react-icons/hi'
 
 function Navbar() {
 
 	const { user } = useContext(AuthContext);
 	return (
   
-			<div className="w-full border-b-2 border-gray-200">
-			  <div className="bg-white h-16 justify-between items-center mx-auto px-4 flex">
+			<div className="w-full fixed top-0 bg-white ">
+			  <div className="border-b-2 border-b-gray-100 h-12 justify-between items-center mx-auto px-4 flex">
 				<div>
-				  <img src={Logo}
-					className="block btn- h-8 w-auto" alt="logo" />
+					<p className='font-semibold italic ml-2'>FIFO</p>
 				</div>
-				<div className="lg:block mr-auto ml-40 hidden relative max-w-xs">
+			{ user && ( 	
+			<div className="lg:block mr-auto ml-40 hidden relative max-w-xs">
                 <p className="pl-3 items-center flex absolute inset-y-0 left-0 pointer-events-none">
                       <span className="items-center justify-center flex">
                         <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -23,13 +24,16 @@ function Navbar() {
                 </p>
 				  <input placeholder="Type to search" type="search" className="border border-gray-300
 				sm:text-sm w-full rounded-lg pt-2 pb-2 pl-10 px-3 py-2"/>
-				</div>
+				</div> )}
 				{user && (
 					<div className="md:space-x-6 justify-end items-center ml-auto flex space-x-3">
 				  <div className="justify-center items-center flex relative">
+					 <span className="justify-center items-center flex mr-1 ">
+							<HiHand></HiHand>
+					</span>
+					<p className="font-semibold text-sm mr-2">Hi, {user?.name}</p>
 					<img src={Logo}
 					  className="object-cover btn- h-9 w-9 rounded-full mr-2 bg-gray-200" alt="" />
-					<p className="font-semibold text-sm">{user?.name}</p>
 				  </div>
 				</div>
 				)}

@@ -1,5 +1,5 @@
 import Home from '../pages/Home';
-import Profile from '../pages/private/Profile';
+import Profile from '../pages/private/profilePage/Profile';
 import Menu from '../pages/private/menuPage/Menu';
 import Dishes from '../pages/private/Dishes';
 import InventoryItems from '../pages/private/inventoryItemPage/InventoryItems';
