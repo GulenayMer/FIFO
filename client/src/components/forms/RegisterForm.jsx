@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import { AuthContext } from '../../context/Auth';
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import user from '../../assets/user.svg';
 
 const RegisterForm = () => {
   const context = useContext(AuthContext);
@@ -30,56 +31,127 @@ const RegisterForm = () => {
   }
   if (!context.loading && !context.user) {
     return (
-      <>
+      <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+        <div>
+          <img
+            className="hover:animate-bounce mx-auto h-10 w-auto"
+            src={user}
+            alt="user"
+          />
+          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            Sign up to FIFO
+          </h2>
+        </div>
+
         {context.errors?.message}
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Name:</label>
-          {errors?.name && (
-            <p className="text-red-600">{errors?.name.message}</p>
-          )}
-          <input
-            type="text"
-            name="name"
-            value={formState.name}
-            onChange={handleChange}
-            required
-          />
-          <label htmlFor="email">Email:</label>
-          {errors?.email && (
-            <p className="text-red-600">{errors?.email.message}</p>
-          )}
-          <input
-            type="email"
-            name="email"
-            value={formState.email}
-            onChange={handleChange}
-            required
-          />
-          <label htmlFor="password">Password:</label>
-          {errors?.password && (
-            <p className="text-red-600">{errors?.password.message}</p>
-          )}
-          <input
-            type="password"
-            name="password"
-            value={formState.password}
-            onChange={handleChange}
-            required
-          />
-          <label htmlFor="confirmPassword">Confirm Password:</label>
-          {errors?.confirmPassword && (
-            <p className="text-red-600">{errors?.confirmPassword.message}</p>
-          )}
-          <input
-            type="password"
-            name="confirmPassword"
-            value={formState.confirmPassword}
-            onChange={handleChange}
-            required
-          />
-          <button>➡️Register⬅️</button>
-        </form>
-      </>
+        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+          <form
+            className="space-y-6"
+            onSubmit={handleSubmit}
+          >
+            <div>
+              <label
+                className="block text-sm font-medium leading-6 text-gray-900"
+                htmlFor="name"
+              >
+                Name:
+              </label>
+              {errors?.name && (
+                <p className="focus:ring-red-600">{errors?.name.message}</p>
+              )}
+              <div className="mt-2">
+                <input
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  type="text"
+                  name="name"
+                  value={formState.name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                className="block text-sm font-medium leading-6 text-gray-900"
+                htmlFor="email"
+              >
+                Email:
+              </label>
+              {errors?.email && (
+                <p className="focus:ring-red-600">{errors?.email.message}</p>
+              )}
+              <div className="mt-2">
+                <input
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  type="email"
+                  name="email"
+                  value={formState.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                className="block text-sm font-medium leading-6 text-gray-900"
+                htmlFor="password"
+              >
+                Password:
+              </label>
+              {errors?.password && (
+                <p className="focus:ring-red-600">{errors?.password.message}</p>
+              )}
+              <div className="mt-2">
+                <input
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  type="password"
+                  name="password"
+                  value={formState.password}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                className="block text-sm font-medium leading-6 text-gray-900"
+                htmlFor="confirmPassword"
+              >
+                Confirm Password:
+              </label>
+              {errors?.confirmPassword && (
+                <p className="focus:ring-red-600">
+                  {errors?.confirmPassword.message}
+                </p>
+              )}
+              <div className="mt-2">
+                <input
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  type="password"
+                  name="confirmPassword"
+                  value={formState.confirmPassword}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+            <div>
+              <button className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                Register
+              </button>
+            </div>
+          </form>
+          <Link
+            className="block mt-5 text-center text-sm text-gray-500"
+            to="/"
+          >
+            Back Home
+          </Link>
+        </div>
+      </div>
     );
   }
 };
