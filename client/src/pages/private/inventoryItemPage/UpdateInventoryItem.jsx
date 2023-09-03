@@ -1,40 +1,54 @@
-import { useState, useContext } from 'react';
-import { AuthContext } from '../../context/Auth';
-import Headless from './Headless';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import instance from '../../../components/axios/axiosInstance';
 
-const InventoryItemForm = () => {
-  const context = useContext(AuthContext);
+const UpdateInventoryItem = () => {
+  const [updatedItem, setUpdatedItem] = useState(null);
+  const { id } = useParams();
 
-  const [formState, setFormState] = useState({
-    name: '',
-    quantity: '',
-    measurement: '',
-    price: '',
-    category: '',
-    season: '',
-  });
-
-  const handleInventoryFormChange = (e) => {
-    const { name, value } = e.target;
-    setFormState((prevFormState) => ({ ...prevFormState, [name]: value }));
+  // needs to get the inventory item that we want to change
+  const getItem = async () => {
+    try {
+      const res = await instance.get(`api/inventoryItems/${id}`);
+      setUpdatedItem(res.data);
+      console.log('Before the update: ', res.data);
+    } catch (error) {
+      console.log(error.response);
+    }
   };
-  const handleInventoryFormSubmit = (e) => {
-    e.preventDefault();
-    console.log('formState:', formState);
-    context.handleInventoryItem(formState);
+
+  useEffect(() => {
+    getItem();
+  }, []);
+
+  //handle change function
+  const handleUpdate = (e) => {
+    const { name, value } = e.target;
+    setUpdatedItem({ ...updatedItem, [name]: value });
+  };
+
+  //handle submit function
+  const handleSubmit = async (inventoryItem) => {
+    try {
+      const res = await instance.put(`api/inventoryItems/${id}`, inventoryItem);
+      setUpdatedItem(res.data);
+      console.log('update:', res.data);
+    } catch (error) {
+      console.log(error.response);
+    }
   };
 
   return (
     <form
-      onSubmit={handleInventoryFormSubmit}
+      onSubmit={handleSubmit}
       className="flex align-middle justify-center items-center pb-10"
     >
       <label htmlFor="name">Item:</label>
       <input
         type="text"
         name="name"
-        value={formState.name}
-        onChange={handleInventoryFormChange}
+        value={updatedItem?.name || ''}
+        onChange={handleUpdate}
         required
       />
 
@@ -42,8 +56,8 @@ const InventoryItemForm = () => {
       <input
         type="text"
         name="quantity"
-        value={formState.quantity}
-        onChange={handleInventoryFormChange}
+        value={updatedItem?.quantity || ''}
+        onChange={handleUpdate}
         required
       />
 
@@ -51,8 +65,8 @@ const InventoryItemForm = () => {
       <select
         id="measurement"
         name="measurement"
-        onChange={handleInventoryFormChange}
-        value={formState.measurement}
+        onChange={handleUpdate}
+        value={updatedItem?.measurement || ''}
         required
       >
         <option value="Gram">Gram</option>
@@ -65,8 +79,8 @@ const InventoryItemForm = () => {
       <input
         type="text"
         name="price"
-        value={formState.price}
-        onChange={handleInventoryFormChange}
+        value={updatedItem?.price || ''}
+        onChange={handleUpdate}
         required
       />
 
@@ -74,8 +88,8 @@ const InventoryItemForm = () => {
       <select
         id="category"
         name="category"
-        onChange={handleInventoryFormChange}
-        value={formState.category}
+        onChange={handleUpdate}
+        value={updatedItem?.category || ''}
         required
       >
         <option value="N/A">N/A</option>
@@ -100,8 +114,8 @@ const InventoryItemForm = () => {
       <select
         id="season"
         name="season"
-        onChange={handleInventoryFormChange}
-        value={formState.season}
+        onChange={handleUpdate}
+        value={updatedItem?.season || ''}
         required
       >
         <option value="N/A">N/A</option>
@@ -116,4 +130,4 @@ const InventoryItemForm = () => {
   );
 };
 
-export default InventoryItemForm;
+export default UpdateInventoryItem;

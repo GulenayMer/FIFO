@@ -57,7 +57,7 @@ const DishSchema = mongoose.Schema(
 
         measurement: {
           type: String,
-          enum: ['Gram', 'Kilogram', 'Milliliter', 'Liter'],
+          enum: ['Gram', 'Kilogram', 'Milliliter', 'Liter', 'Unit'],
         },
         price: Number,
         //this will b populated by a function in the FE on submit when creating the function
@@ -69,9 +69,9 @@ const DishSchema = mongoose.Schema(
       type: Number,
     },
     user: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-    },
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User',
+	  },
   },
   {
     timestamps: true, // created at, update at

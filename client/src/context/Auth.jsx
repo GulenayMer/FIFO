@@ -11,6 +11,7 @@ const AuthProvider = ({ children }) => {
   const [errors, setErrors] = useState(null);
   const [inventoryItems, setInventoryItems] = useState(null);
   const [dishes, setDishes] = useState(null);
+  const [getDishes, setGetDishes] = useState(null);
   const [menu, setMenu] = useState(null);
 
   const handleStates = (user, loading, errors) => {
@@ -75,6 +76,7 @@ const AuthProvider = ({ children }) => {
 
   //------------------------ INVENTORY ITEM --------------------//
   // have to get the connection btw backend inventoryItem  & to the form
+
   const handleInventoryItem = async (inventoryItems) => {
     setLoading(true);
     try {
@@ -93,12 +95,23 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     try {
       const res = await instance.post('api/dishes', dishes);
-      setDishes(res.data.dishes);
+      setDishes(res.data.newDish);
       setLoading(false);
       //redirect('/dishes');
     } catch (error) {
       console.log(error.response);
-      setDishes(null);
+    }
+  };
+
+  const getAllDishes = async (getDishes) => {
+    setLoading(true);
+    try {
+      const res = await instance.get('api/dishes', getDishes);
+      setGetDishes(res.data.getDishes);
+      console.log('Get all dishes auth', getDishes);
+      setLoading(false);
+    } catch (error) {
+      console.log(error.response);
     }
   };
 
@@ -121,6 +134,7 @@ const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         user,
+        dishes,
         loading,
         errors,
         handleLogin,
@@ -128,6 +142,7 @@ const AuthProvider = ({ children }) => {
         handleLogout,
         handleInventoryItem,
         handleDish,
+        getAllDishes,
         handleMenu,
       }}
     >
