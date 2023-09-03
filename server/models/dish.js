@@ -9,7 +9,7 @@ const DishSchema = mongoose.Schema(
     description: {
       type: String,
     },
-    typeOfDish: {
+    type: {
       type: String,
       enum: ['none', 'Starter', 'Main', 'Dessert', 'Side'], // limits the user from putting anything else than what we have here
       default: 'none',
@@ -50,14 +50,14 @@ const DishSchema = mongoose.Schema(
     },
     ingredients: [
       {
-        InventoryItem: {
+        inventoryItem: {
           type: mongoose.Schema.Types.ObjectId,
           ref: 'InventoryItem',
         },
 
         measurement: {
           type: String,
-          enum: ['Gram', 'Kilogram', 'Milliliter', 'Liter'],
+          enum: ['Gram', 'Kilogram', 'Milliliter', 'Liter', 'Unit'],
         },
         price: Number,
         //this will b populated by a function in the FE on submit when creating the function
@@ -65,13 +65,13 @@ const DishSchema = mongoose.Schema(
         //200
       },
     ],
-    dishPrice: {
+    price: {
       type: Number,
     },
     user: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-    },
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User',
+	  },
   },
   {
     timestamps: true, // created at, update at

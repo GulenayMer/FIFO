@@ -4,10 +4,12 @@ const Dish = require('../models/dish');
 const createDish = async (req, res) => {
   try {
     const newDish = await Dish.create(req.body);
+	console.log("this is requesttttt  BE", req.body);
     // .populate('inventoryItem', {inUse: true});
     res.status(201).json({ message: 'newDish created!', newDish });
   } catch (error) {
-    res.status(500).json({ message: error.message, errors: error.errors });
+	console.error('Error creating dish:', error);
+	res.status(500).json({ message: error.message, errors: error.errors });
   }
 };
 

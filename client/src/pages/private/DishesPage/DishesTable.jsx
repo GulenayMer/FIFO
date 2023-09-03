@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
-import AuthContext from '../../../context/Auth';
+import  { useState, useEffect, useContext } from 'react';
 import instance from '../../../components/axios/axiosInstance';
 
 const DishesTable = () => {
@@ -7,7 +6,7 @@ const DishesTable = () => {
 
   const getAllDishes = async () => {
     try {
-      const res = await instance.get('api/dishes');
+      const res = await instance.get('/api/dishes');
       setDishes(res.data);
       console.log('Get all dishes DishTable', res.data);
     } catch (error) {
@@ -22,7 +21,17 @@ const DishesTable = () => {
   return (
     <>
       <h1>DishesTable</h1>
-      {dishes && dishes.map((dish) => <li key={dish._id}>{dish.name}</li>)}
+	  <ul>
+	  {dishes && dishes.map((dish) =>
+	  <li key={dish._id}>
+		<span>{dish.name}</span>
+		<span>{dish.description}</span>
+		<span>{dish.type}</span>
+		<span>{dish.price}</span>
+	  </li>
+	
+	)}
+	  </ul>
     </>
   );
 };

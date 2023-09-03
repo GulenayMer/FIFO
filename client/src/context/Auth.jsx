@@ -95,7 +95,7 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     try {
       const res = await instance.post('api/dishes', dishes);
-      setDishes(res.data.dishes);
+      setDishes(res.data.newDish);
       setLoading(false);
       //redirect('/dishes');
     } catch (error) {
