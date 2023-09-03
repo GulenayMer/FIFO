@@ -3,7 +3,10 @@ const Menu = require('../models/menu');
 //
 const createMenu = async (req, res) => {
   try {
-    const newMenu = await Menu.create(req.body);
+    const newMenu = await Menu.create({
+		...req.body,
+		user: req.user._id,
+	  });
     res.status(201).json({ message: 'newMenu created!', newMenu });
   } catch (error) {
     res.status(500).json({ message: error.message, errors: error.errors });
@@ -13,7 +16,7 @@ const createMenu = async (req, res) => {
 // GET all Menus
 const getAllMenus = async (req, res) => {
   try {
-    const menus = await Menu.find(); // returns an array of all // GET all Menus
+    const menus = await Menu.find({ user: req.user._id }); // returns an array of all // GET all Menus
     console.log('All Inventory Items : ', menus);
     res.status(200).json(menus);
   } catch (error) {

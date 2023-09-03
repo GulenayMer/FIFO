@@ -103,24 +103,14 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  const getAllDishes = async (getDishes) => {
-    setLoading(true);
-    try {
-      const res = await instance.get('api/dishes', getDishes);
-      setGetDishes(res.data.getDishes);
-      console.log('Get all dishes auth', getDishes);
-      setLoading(false);
-    } catch (error) {
-      console.log(error.response);
-    }
-  };
+
 
   //------------------------ MENU--------------------//
   const handleMenu = async (menu) => {
     setLoading(true);
     try {
       const res = await instance.post('api/menu', menu);
-      setMenu(res.data.menu);
+      setMenu(res.data.newMenu);
       setLoading(false);
       //redirect('/dishes');
     } catch (error) {
@@ -142,7 +132,6 @@ const AuthProvider = ({ children }) => {
         handleLogout,
         handleInventoryItem,
         handleDish,
-        getAllDishes,
         handleMenu,
       }}
     >
