@@ -98,22 +98,30 @@ const DishForm = () => {
 			  console.error("Unknown measurement type");
 			  break;
 		  }
-  
-		  setDish({
-			...dish,
-			ingredients: [
-			  ...dish.ingredients,
-			  {
-				inventoryItem: selectedItem._id,
-				measurement: selectedItem.measurement,
-				price: ingredientPrice,
-				quantity: parsedQuantity,
-			  },
-			],
-		  });
-  
-		  // Clear the grams quantity input
-		  setGramsQuantity(0);
+		  ingredientPrice = ingredientPrice * 2;
+		  ingredientPrice = Number(ingredientPrice.toFixed(2));
+		  //console.log(dish.ingredients.find(e => console.log(e) ));
+		  if (dish.ingredients.find(e => e.inventoryItem === selectedItem._id)) {
+			console.log("sameee");
+		  }else{
+			setDish({
+				...dish,
+				ingredients: [
+				  ...dish.ingredients,
+				  {
+					inventoryItem: selectedItem._id,
+					measurement: selectedItem.measurement,
+					price: ingredientPrice,
+					quantity: parsedQuantity,
+				  },
+				],
+				price:dish.price + ingredientPrice
+			  });
+	  
+			  // Clear the grams quantity input
+			  setGramsQuantity(0);
+		  }
+		 
 		} else {
 		  // Handle invalid input
 		  console.error("Invalid quantity entered");
