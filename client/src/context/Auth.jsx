@@ -111,6 +111,7 @@ const AuthProvider = ({ children }) => {
     try {
       const res = await instance.post('api/menu', menu);
       setMenu(res.data.newMenu);
+	  console.log("anything", menu, res.data.newMenu);
       setLoading(false);
       //redirect('/dishes');
     } catch (error) {

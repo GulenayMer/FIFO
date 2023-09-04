@@ -57,7 +57,7 @@ const MenuForm = () => {
   const handleMenuFormSubmit = async (e) => {
     e.preventDefault();
     console.log('Menu', menu);
-    context.handleMenu(menu);
+    context.handleMenu({...menu, dishes: selectedDishes});
   };
 
   const handleOnSearch = (string, results) => {
