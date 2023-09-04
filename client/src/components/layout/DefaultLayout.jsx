@@ -5,7 +5,7 @@ import NavTest from '../NavTest';
 
 const DefaultLayout = ({ children }) => {
   return (
-    <div className="grid grid-rows-[8%,auto,70%] grid-cols-[250px,auto] h-screen ">
+    <div className="grid grid-rows-[8%,auto,auto] grid-cols-[250px,auto] h-screen ">
       <header className="inline-grid col-span-5   grid-rows-1">
         <NavTest />
       </header>
@@ -16,7 +16,7 @@ const DefaultLayout = ({ children }) => {
         {children}
       </main>
 
-      <footer className=" col-span-5  col-start-1 row-start-5 bg-gray-800 ">
+      <footer className=" col-span-5 col-start-1 row-start-5 bg-gray-800 ">
         <Footer />
       </footer>
     </div>
