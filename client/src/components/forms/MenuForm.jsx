@@ -38,7 +38,12 @@ const MenuForm = () => {
   };
 
   const addDishToMenu = () => {
-    if (selectedDish) {
+	/* if (dishes.find(e => e._id === selectedDish._id)) {
+		console.log("sameee");
+	  }  */
+	
+     if(selectedDish){
+		console.log("not includes");
       setSelectedDishes([...selectedDishes, selectedDish]);
       setSelectedDish(null); // Clear the selected dish
     }

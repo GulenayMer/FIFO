@@ -26,14 +26,14 @@ const MenuAll = () => {
 			menu.map((item) => (
 			<li key={item._id} className="font-bold border-2 border-yellow-500">
 				<h2>Menu Name: {item.name}</h2>
-				 <ul>
+				<ul>
 				{item.dishes && 
 					item.dishes.map( (i) => (
 					<li key={i._id} className="">
-						<h5>Dish Name: {i.dish.name}</h5>
+						<h5>Dish Name: {i.name}</h5>
+						<p>Price: {i.price}</p>
 					</li>
-				))}
-				</ul> 
+				))}</ul> 
 			</li>
 			))
 		}

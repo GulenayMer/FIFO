@@ -100,7 +100,7 @@ const DishForm = () => {
 		  }
 		  ingredientPrice = ingredientPrice * 2;
 		  ingredientPrice = Number(ingredientPrice.toFixed(2));
-		  console.log(dish.ingredients.find(e => console.log(e) ));
+		  //console.log(dish.ingredients.find(e => console.log(e) ));
 		  if (dish.ingredients.find(e => e.inventoryItem === selectedItem._id)) {
 			console.log("sameee");
 		  }else{

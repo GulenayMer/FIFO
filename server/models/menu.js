@@ -7,9 +7,8 @@ const MenuSchema = mongoose.Schema(
 		type:String
 	},
     dishes: [
-      {
-        dish: { type: mongoose.Schema.Types.ObjectId, ref: 'Dish' }
-      }
+       { type: mongoose.Schema.Types.ObjectId, ref: 'Dish' }
+      
     ],
 	user: {
 		type: mongoose.Schema.Types.ObjectId,

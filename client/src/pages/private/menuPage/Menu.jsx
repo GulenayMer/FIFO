@@ -7,7 +7,7 @@ const Menu = () => {
     <DefaultLayout>
       <div className='flex flex-col justify-center items-center m-20'>
 		<MenuForm />
-	 	{/* <MenuTable />  */}
+	 	<MenuTable />  
       </div>
     </DefaultLayout>
   );

@@ -16,8 +16,10 @@ const createMenu = async (req, res) => {
 // GET all Menus
 const getAllMenus = async (req, res) => {
   try {
-    const menus = await Menu.find({ user: req.user._id }); // returns an array of all // GET all Menus
-    console.log('All Inventory Items : ', menus);
+    const menus = await Menu.find({ user: req.user._id }).populate({
+        path: 'dishes'
+}); // returns an array of all // GET all Menus
+    console.log('egggfrgregergeg: ', menus[0]);
     res.status(200).json(menus);
   } catch (error) {
     res.status(500).json({ message: error.message, errors: error.errors });
