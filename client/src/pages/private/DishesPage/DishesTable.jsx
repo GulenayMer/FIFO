@@ -1,4 +1,4 @@
-import  { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import instance from '../../../components/axios/axiosInstance';
 
 const DishesTable = () => {
@@ -19,20 +19,28 @@ const DishesTable = () => {
   }, []);
 
   return (
-    <>
-      <h1>DishesTable</h1>
-	  <ul>
-	  {dishes && dishes.map((dish) =>
-	  <li key={dish._id}>
-		<span>{dish.name}</span>
-		<span>{dish.description}</span>
-		<span>{dish.type}</span>
-		<span>{dish.price}</span>
-	  </li>
-	
-	)}
-	  </ul>
-    </>
+    <div className=" w-full min-h-[50vh] ">
+      <h1 className="text-center pt-5 pb-5 font-bold text-4xl">Your Dishes:</h1>
+      {dishes &&
+        dishes.map((dish) => (
+          <div
+            key={dish._id}
+            className=" bg-red-200"
+          >
+            <span className="text-3xl">{dish.name}</span>
+            <span className="mt-2">{dish.description}</span>
+            <div className="flex ">
+              <label htmlFor="span">Course: </label>
+
+              <span> {dish.type}</span>
+            </div>
+            <div>
+              <label htmlFor="span">Costs: </label>
+              <span>{dish.price}€</span>
+            </div>
+          </div>
+        ))}
+    </div>
   );
 };
 
