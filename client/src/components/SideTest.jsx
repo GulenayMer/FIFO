@@ -7,18 +7,20 @@ import {MdUnsubscribe, MdInventory} from 'react-icons/md'
 import {CgProfile} from 'react-icons/cg';
 
 const navLinkClass = `
-font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
-transition-all duration-200 hover:bg-gray-200 group cursor-pointer 
+font-medium text-sm items-center rounded-lg px-4 py-2.5 flex
+transition-all duration-200 hover:bg-gray-100 hover:text-fuchsia-700
+group cursor-pointer
+text-xl 2xl:text-2xl text-white
 `
 
 const Sidebar = () => {
 	const { user, handleLogout } = useContext(AuthContext);
 
     return (
-        <div className=" h-full fixed top-0 left-0 w-60">
-            <div className="flex flex-col pt-40 ">
+        <div className=" h-full flex flex-col justify-center items-center fixed top-0 left-0 w-70 ">
+            <div className="flex  flex-col justify-center items-center gap-10 ">
                 <div className="h-full flex-col justify-between px-4 flex">
-                    <div className="space-y-4">
+                    <div className="space-y-4 2xl:space-y-10 ">
 						<NavLink to="/" className={navLinkClass}>
             				<span>
 								<FaHome></FaHome>
@@ -37,7 +39,7 @@ const Sidebar = () => {
 							<span className="justify-center items-center flex">
 								<MdInventory></MdInventory>
 							</span>
-                			<span className='ml-4'>Inventory Items</span>
+                			<span className='ml-4'>Inventory</span>
               			</NavLink>
 						  <NavLink to="/dishes" className={navLinkClass}>
 							<span className="justify-center items-center flex">
@@ -51,6 +53,12 @@ const Sidebar = () => {
 							</span>
               				<span className='ml-2'>Menu</span>
               			</NavLink>
+						  <NavLink to="/register" className={navLinkClass}>
+						<span className="justify-center items-center flex">
+								<MdUnsubscribe></MdUnsubscribe>
+							</span>
+							<span className='ml-4'>Subscribe</span>
+						</NavLink>
 			  			<NavLink to="/" className={navLinkClass}>
 				    		<span className="justify-center items-center flex">
 								<BiSolidLogOut></BiSolidLogOut>
@@ -78,7 +86,7 @@ const Sidebar = () => {
 						<span className="justify-center items-center flex">
 								<MdUnsubscribe></MdUnsubscribe>
 							</span>
-							<span className='ml-4'>Subscribe</span>
+							<span className='ml-4'>Contact</span>
 						</NavLink>
 					</>
         			)}

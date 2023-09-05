@@ -7,7 +7,9 @@ import autumn from '../../../assets/21_maple_autumn_season.svg';
 import spring from '../../../assets/11_flower_spring_season.svg';
 
 const theadStyle = `
-px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase
+px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-md font-bold 
+text-gray-700 uppercase
+
 `;
 
 const trStyle = `
@@ -78,7 +80,7 @@ function InventoryItemTable() {
           </h2>
         </div>
         <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 m-auto">
-          <div className=" w-[80%] m-auto shadow-md rounded-lg overflow-hidden">
+          <div className=" w-[90%] m-auto shadow-md rounded-lg overflow-hidden">
             <table className="min-w-full text-center m-auto">
               <thead>
                 <tr>
@@ -101,20 +103,20 @@ function InventoryItemTable() {
                       />
                     ) : (
                       <tr key={item._id}>
-                        <td className="px-4 py-5 border-b border-gray-200 bg-white text-sm">
+                        <td className="px-4 py-5 border-b border-gray-200 bg-white text-md font-semibold italic">
                           <p className="text-gray-900">{item.name}</p>
                         </td>
                         <td className={trStyle}>
-                          <p className="text-gray-900">{item.quantity}</p>
+                          <p className="text-gray-900 font-semibold">{item.quantity}</p>
                         </td>
                         <td className={trStyle}>
-                          <p className="text-gray-900">{item.measurement}</p>
+                          <p className="text-gray-900 font-semibold">{item.measurement}</p>
                         </td>
                         <td className={trStyle}>
-                          <p className="text-gray-900">{item.category}</p>
+                          <p className="text-gray-900 font-semibold">{item.category}</p>
                         </td>
                         <td className={trStyle}>
-                          <div className="flex align-middle items-center justify-center">
+                          <div className="flex align-middle items-center justify-center gap-2">
                             {item.season === 'Autumn' ? (
                               <div className="flex-shrink-0 w-10 h-10">
                                 <img
@@ -146,11 +148,11 @@ function InventoryItemTable() {
                             ) : (
                               <div className="flex-shrink-0 w-10 h-10"></div>
                             )}
-                            <p className="text-gray-900 ">{item.season}</p>
+                            <p className="text-gray-900 font-semibold ">{item.season}</p>
                           </div>
                         </td>
                         <td className={trStyle}>
-                          <p className="text-gray-900">
+                          <p className="text-gray-900 font-semibold">
                             {item.price}
                             <span className="ml-1 italic font-semibold">
                               &euro;
@@ -160,7 +162,8 @@ function InventoryItemTable() {
                         <td className={trStyle}>
                           <div className="inline-flex gap-2">
                             <button
-                              className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                              className="flex w-full justify-center rounded-md bg-slate-600 px-3 py-1.5 text-sm font-semibold 
+							  leading-6 text-white shadow-sm hover:bg-slate-500  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                               onClick={() =>
                                 handleUpdateInventoryItem(item._id)
                               }
@@ -168,7 +171,9 @@ function InventoryItemTable() {
                               Edit
                             </button>
                             <button
-                              className="flex w-full justify-center rounded-md bg-rose-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600"
+                              className="flex w-full justify-center rounded-md bg-rose-600 px-3 py-1.5 
+							  text-sm font-semibold leading-6 text-white shadow-sm hover:bg-rose-500 
+							  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600"
                               onClick={() =>
                                 handleDeleteInventoryItem(item._id)
                               }

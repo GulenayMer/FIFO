@@ -4,7 +4,7 @@ import {MdKeyboardArrowRight} from 'react-icons/md'
 
 const Hero = () => {
   return (
-	<section className="bg-gray-200">
+	<section className="bg-gray-200 pt-10">
       <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
         <Link to='' 
 		className="inline-flex cursor-pointer justify-between items-center py-1 px-1 pr-4 mb-7 text-sm
@@ -13,7 +13,7 @@ const Hero = () => {
           <span className="text-sm font-medium ml-2">FIFO is out! See what's new</span>
         <span className='font-medium ml-1'><MdKeyboardArrowRight></MdKeyboardArrowRight></span>
         </Link>
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl ">
+        <h1 className="mb-4 text-4xl py-5 font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl ">
 			FIFO Manager: Elevate Your Restaurant's Success
 		</h1>
         <p className="mb-8 text-lg font-normal text-gray-600 lg:text-xl sm:px-16 xl:px-48">
