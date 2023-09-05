@@ -3,6 +3,10 @@ import { Tab } from '@headlessui/react'
 import placeholder from '../../../assets/avatar.png';
 import {HiOutlineArrowNarrowRight} from 'react-icons/hi'
 import {Link} from 'react-router-dom'
+import ingredients from './landingPagePics/ingredients.jpg'
+import dish from "./landingPagePics/dish.jpg"
+import menu from "./landingPagePics/menu.jpg"
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -14,8 +18,8 @@ export default function Tabs() {
     {
         id: 1,
         title: 'Inventory Collection',
-		image:placeholder,
-		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, nemo vitae? Sed aspernatur quis reprehenderit obcaecati', 
+		image:ingredients ,
+		description: 'Lists your inventory, you can pick how much of an ingredient you want to use, and keeps track of changing prizes over time.', 
 
     },
     ],
@@ -23,16 +27,16 @@ export default function Tabs() {
     {
         id: 1,
         title: 'Dish Collection',
-		image:placeholder,
-		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, nemo vitae? Sed aspernatur quis reprehenderit obcaecati', 
+		image: dish ,
+		description: 'In the dish collection, you can pick ingredients from your inventory, that you need to create your dish. The dish collection will calculate the prize for one dish and add it to your list of dishes.', 
     },
     ],
     Menu: [
     {
         id: 1,
         title: 'Menu Collection',
-		image:placeholder,
-		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, nemo vitae? Sed aspernatur quis reprehenderit obcaecati', 
+		image: menu,
+		description: 'The Menu collection offers you to create menus with your created dishes. Filtering them by season, allergies etc.', 
     },
     ],
   })
@@ -69,7 +73,7 @@ export default function Tabs() {
             {posts.map((post) => (
     		<div  key={post.id} className="flex flex-col items-center justify-center max-w-md rounded-lg shadow-md ">
     			<a href="#">
-        		<img className="rounded-t-lg " src={post.image} alt="" width={200}/>
+        		<img className="rounded-t-lg " src={post.image} alt="" width={400}/>
     			</a>
     	<div className="p-2 text-center">
         <a href="#">

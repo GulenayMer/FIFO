@@ -2,6 +2,7 @@ import Logo from '../assets/Avatar.png'
 import { AuthContext } from '../context/Auth';
 import { useContext } from 'react';
 import {HiHand} from 'react-icons/hi'
+import logo from '../assets/logo.png'
 
 function Navbar() {
 
@@ -9,9 +10,10 @@ function Navbar() {
 	return (
   
 			<div className="w-full fixed top-0 bg-white ">
-			  <div className="border-b-2 border-b-gray-100 h-12 justify-between items-center mx-auto px-4 flex">
-				<div>
-					<p className='font-semibold italic ml-2'>FIFO</p>
+			  <div className="border-b-2 border-b-gray-100 h-14 justify-start items-center mx-auto px-4 flex ">
+				<div className='flex text-center'>
+					<img className='h-9' src= {logo} alt="FIFO Logo" />
+					<p className='font-semibold italic ml-2 text-3xl'>FIFO</p>
 				</div>
 			{ user && ( 	
 			<div className="lg:block mr-auto ml-40 hidden relative max-w-xs">
