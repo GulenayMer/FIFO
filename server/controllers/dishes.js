@@ -3,7 +3,10 @@ const Dish = require('../models/dish');
 //
 const createDish = async (req, res) => {
   try {
-    const newDish = await Dish.create(req.body);
+    const newDish = await Dish.create({
+		...req.body,
+		user: req.user._id,
+	  });
 	console.log("this is requesttttt  BE", req.body);
     // .populate('inventoryItem', {inUse: true});
     res.status(201).json({ message: 'newDish created!', newDish });
@@ -16,7 +19,7 @@ const createDish = async (req, res) => {
 // GET all Dishes
 const getAllDishes = async (req, res) => {
   try {
-    const dishes = await Dish.find(); // returns an array of all // GET all Dishs
+    const dishes = await Dish.find({ user: req.user._id }); // returns an array of all // GET all Dishs
     console.log('All Dishes : ', dishes);
     res.status(200).json(dishes);
   } catch (error) {

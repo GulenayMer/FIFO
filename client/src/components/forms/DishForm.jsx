@@ -62,9 +62,9 @@ const DishForm = () => {
   };
   const handleQuantityPrompt = () => {
     if (selectedItem) {
-      // const gramsQuantityInput = prompt(
-      //   `Enter the quantity in ${selectedItem.measurement} for this ingredient:`
-      // );
+      const gramsQuantityInput = prompt(
+        `Enter the quantity in ${selectedItem.measurement} for this ingredient:`
+      );
       if (gramsQuantityInput !== null) {
         const parsedQuantity = parseFloat(gramsQuantityInput);
         if (!isNaN(parsedQuantity)) {

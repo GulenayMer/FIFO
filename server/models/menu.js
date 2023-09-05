@@ -7,13 +7,13 @@ const MenuSchema = mongoose.Schema(
 		type:String
 	},
     dishes: [
-      {
-        dish: { type: mongoose.Schema.Types.ObjectId, ref: 'Dish' }
-      }
+       { type: mongoose.Schema.Types.ObjectId, ref: 'Dish' }
+      
     ],
-	user:{
-		type: mongoose.Schema.Types.ObjectId, ref: 'User'
-	}
+	user: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User',
+	  },
   },
   {
     timestamps: true, // created at, update at
