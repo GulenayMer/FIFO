@@ -43,13 +43,13 @@ const MenuAll = () => {
   return (
 	<>
 
-	<h2 className="text-2xl font-bold mb-4">MENU LIST</h2>
-	  <div className="flex flex-col justify-center items-center w-full bg-gray-100 p-4">
-		<img src={menuImg} alt="menu" className="w-full mb-4" />
-		<div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-[100%] cursor-pointer">
+	<h2 className="text-2xl font-bold mt-20 mb-10">MENU LIST</h2>
+	  <div className="flex flex-col justify-center items-center w-full 2xl:w-[80%] bg-gray-100">
+		<img src={menuImg} alt="menu" className="w-[100%] h-100" />
+		<div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 w-[100%] 2xl:w-[80%] cursor-pointer ml-3  my-10">
 		{ menu &&
 			menu.map((item) => (
-			<div key={item._id} className="bg-white py-3 px-2 shadow-md rounded-md flex flex-col justify-center items-center  w-full"
+			<div key={item._id} className="bg-gray-50 py-3 px-2 shadow-md rounded-md flex flex-col justify-center items-center w-full"
 			onClick={() => handleMenuItemClick(item)}>
 				<h3 className=" text-gray-800  font-semibold uppercase mb-1">{item.name}</h3>
 				{item.dishes && 
@@ -79,30 +79,21 @@ const MenuAll = () => {
 			  maxWidth: "", 
 			  margin: "0 auto", 
 			  overflow: "hidden",
-			  backgroundColor: "#dccdb7"
+			  backgroundColor: "#ffedd5"
 			},
 		  }}
       >
         {selectedItem && (
-          <div className="flex relative flex-col justify-center items-center p-4" ref={divToCaptureRef}>
+          <div className="flex relative flex-col justify-center items-center py-8" >
 			<button
-            className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900
+            className="absolute top-2 right-1 text-gray-500 bg-transparent hover:bg-gray-200 hover:text-gray-900
 				rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center"
 			onClick={() => setModalIsOpen(false)}>
 			X
 			</button>
-            <h2 className="text-2xl text-gray-800  font-semibold uppercase mb-4">{selectedItem.name}</h2>
-            {selectedItem.dishes && 
-				selectedItem.dishes.map((dish) => (
-                <div key={dish._id} className="flex flex-col justify-center items-center">
-					<h5 className="text-gray-600 text-md">{dish.type}</h5>
-					<p className="text-gray-600  font-semibold italic mt-2">
-						{dish.name}
-					</p>
-					<p className="text-gray-600  italic mt-2">
-						{dish.description}
-					</p>
-					<span className="">
+			<div className="flex flex-col justify-center items-center  border-2 w-[70%] border-gray-300 p-3" ref={divToCaptureRef}>
+			<h2 className="text-2xl text-gray-800 font-semibold">{selectedItem.name}</h2>
+			<span>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 100 20"
@@ -117,11 +108,23 @@ const MenuAll = () => {
 						/>
 						</svg>
 					</span>
+            {selectedItem.dishes && 
+				selectedItem.dishes.map((dish) => (
+                <div key={dish._id} className="flex flex-col justify-center items-center my-3">
+					<h5 className="text-gray-800 text-lg font-semibold uppercase tracking-wider">{dish.type}</h5>
+					<p className="text-gray-800 text-md uppercase tracking-wide">
+						{dish.name}
+					</p>
+					<p className="text-gray-600 text-sm lowercase italic">
+						{dish.description}
+					</p>
                 </div>
 			))}
+			</div>
+          
 			 <button
 			 onClick={captureAndDownloadImage}
-              className=" mt-3 bg-[#f7fff7] text-gray-800 px-4 py-2 rounded hover:bg-[#d2d6d2] cursor-pointer"
+              className=" mt-5 bg-purple-800 text-gray-50 px-3 py-2 rounded-lg hover:bg-purple-600 cursor-pointer"
             >
               Download as Image
             </button>
