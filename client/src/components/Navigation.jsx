@@ -34,7 +34,7 @@ const Navigation = () => {
                   isPending ? 'pending' : isActive ? 'active' : ''
                 }
               >
-                hi {user.name}
+                Hi {user.name}
               </NavLink>
             </li>
             <li>
