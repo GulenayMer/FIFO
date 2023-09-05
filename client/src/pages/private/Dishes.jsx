@@ -5,9 +5,7 @@ import DishForm2 from '../../components/forms/DishForm2';
 const Dishes = () => {
   return (
     <DefaultLayout>
-      <h1>Dishes</h1>
       <DishForm2 />
-
       <DishesTable />
     </DefaultLayout>
   );

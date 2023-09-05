@@ -145,7 +145,7 @@ const DishForm2 = () => {
   };
 
   return (
-    <div className="flex align-middle items-center justify-between flex-col py-5 px-5 gap-5 w-[80%] m-auto border-gray-300 shadow-md rounded-lg">
+    <div className="flex align-middle items-center justify-between flex-col py-5 px-5 gap-5 w-[80%] mt-16 m-auto border-gray-300 shadow-md rounded-lg bg-slate-50">
       <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
         Please add your dish here:
       </h2>
@@ -161,7 +161,7 @@ const DishForm2 = () => {
             Name:
           </label>
           <input
-            className="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            className="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-800 sm:text-sm sm:leading-6"
             type="text"
             name="name"
             value={dish.name}
@@ -176,7 +176,7 @@ const DishForm2 = () => {
             Description:
           </label>
           <input
-            className="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            className="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-800 sm:text-sm sm:leading-6"
             type="text"
             name="description"
             value={dish.description}
@@ -191,7 +191,7 @@ const DishForm2 = () => {
             Type:
           </label>
           <select
-            className="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            className="rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-800 sm:text-sm sm:leading-6"
             name="type"
             value={dish.type}
             onChange={handleDishInputChange}
@@ -211,7 +211,7 @@ const DishForm2 = () => {
             Alleghenies:
           </label>
           <select
-            className="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            className="rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-800 sm:text-sm sm:leading-6"
             name="allergenics"
             value={dish.allergenics}
             onChange={handleDishInputChange}
@@ -236,7 +236,7 @@ const DishForm2 = () => {
             Category:
           </label>
           <select
-            className="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            className="rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-800 sm:text-sm sm:leading-6"
             name="category"
             value={dish.category}
             onChange={handleDishInputChange}
@@ -253,21 +253,30 @@ const DishForm2 = () => {
         </div>
 
         {/* Ingredients */}
-        <div className="w-[20%] m-auto text-center">
-          <label
-            className="text-sm font-medium leading-6 text-gray-900"
-            htmlFor="category"
-          >
-            Ingredient:
-          </label>
-          <ReactSearchAutocomplete
-            items={inventoryItems}
-            maxResults={15}
-            onSelect={handleOnIngredientSelect}
-            fuseOptions={{ keys: ['name'] }}
-          />
+        <div
+          className="w-full m-auto text-center
+        "
+        >
+          <div className="w-[20%] m-auto">
+            <label
+              className="text-sm font-medium leading-6 text-gray-900"
+              htmlFor="category"
+            >
+              Please add your ingredient
+            </label>
+            <ReactSearchAutocomplete
+              /*             styling={{
+              ':focus': { ringColor: 'none' },
+            }} */
+              items={inventoryItems}
+              maxResults={15}
+              onSelect={handleOnIngredientSelect}
+              fuseOptions={{ keys: ['name'] }}
+            />
+          </div>
           <button
-            className="flex justify-center items-center m-auto mt-5 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="flex justify-center m-auto rounded-md bg-emerald-800 px-3 py-1.5 mt-4 mb-4
+          text-sm font-semibold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             type="button"
             onClick={handleAddIngredient}
           >
@@ -277,76 +286,87 @@ const DishForm2 = () => {
           {Object.entries(ingredients)?.map(([name, ingredient], index) => (
             <div
               key={index}
-              className="flex justify-between items-center"
+              className="flex w-full align-middle justify-center items-center gap-8"
             >
-              <div>{name}</div>
-              <div>
-                <label
-                  className="text-sm font-medium leading-6 text-gray-900"
-                  htmlFor={`ingredient-${name}-measurement`}
+              <div className="w-full border-b-2 pb-2 pt-2 flex align-middle justify-around items-center gap-5">
+                <div className=" font-semibold italic w-[20%]">
+                  {name.toLocaleUpperCase()}
+                </div>
+                <div className="flex justify-center align-middle items-center gap-2 ">
+                  <label
+                    className="text-sm font-medium leading-6  text-gray-900 "
+                    htmlFor={`ingredient-${name}-measurement`}
+                  >
+                    Measurement:
+                  </label>
+                  <select
+                    className="flex-1 pr-7 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-800 sm:text-sm sm:leading-6"
+                    id={`ingredient-${name}-measurement`}
+                    name="measurement"
+                    value={ingredient.measurement}
+                    type="text"
+                    onChange={(e) => handleChangeIngredient(e, name)}
+                    required
+                  >
+                    {(ingredient.measurement === 'Liter' ||
+                      ingredient.measurement === 'Milliliter') && (
+                      <>
+                        <option value="Milliliter">Milliliter</option>
+                        <option value="Liter">Liter</option>
+                      </>
+                    )}
+                    {(ingredient.measurement === 'Gram' ||
+                      ingredient.measurement === 'Kilogram') && (
+                      <>
+                        <option value="Gram">Gram</option>
+                        <option value="Kilogram">Kilogram</option>
+                      </>
+                    )}
+                    {ingredient.measurement === 'Unit' && (
+                      <option value="Unit">Unit</option>
+                    )}
+                  </select>
+                </div>
+                <div>
+                  <label
+                    className=" flex-1 text-sm font-medium leading-6 text-gray-900"
+                    htmlFor={`ingredient-${name}-quantity`}
+                  >
+                    Quantity:
+                  </label>
+                  <input
+                    className="flex-1 w-[20%] ml-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-800 sm:text-sm sm:leading-6"
+                    type="number"
+                    id={`ingredient-${name}-quantity`}
+                    name="quantity"
+                    value={ingredient.quantity}
+                    onChange={(e) => handleChangeIngredient(e, name)}
+                  />
+                </div>
+                <div>
+                  <span className="flex-1 text-sm font-medium leading-6 text-gray-900">
+                    Price:
+                  </span>
+                  <div className="flex-1">
+                    {calculateIngredientPrice(ingredient).toFixed(2)}
+                  </div>
+                </div>
+                <button
+                  className="flex-1w-full mr-5 justify-center rounded-md bg-rose-600 px-3 py-1.5 
+                              text-sm font-semibold leading-6 text-white shadow-sm hover:bg-rose-500 
+                              focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600"
+                  type="button"
+                  onClick={() => handleRemoveIngredient(name)}
                 >
-                  Measurement:
-                </label>
-                <select
-                  className=" w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  id={`ingredient-${name}-measurement`}
-                  name="measurement"
-                  value={ingredient.measurement}
-                  type="text"
-                  onChange={(e) => handleChangeIngredient(e, name)}
-                  required
-                >
-                  {(ingredient.measurement === 'Liter' ||
-                    ingredient.measurement === 'Milliliter') && (
-                    <>
-                      <option value="Milliliter">Milliliter</option>
-                      <option value="Liter">Liter</option>
-                    </>
-                  )}
-                  {(ingredient.measurement === 'Gram' ||
-                    ingredient.measurement === 'Kilogram') && (
-                    <>
-                      <option value="Gram">Gram</option>
-                      <option value="Kilogram">Kilogram</option>
-                    </>
-                  )}
-                  {ingredient.measurement === 'Unit' && (
-                    <option value="Unit">Unit</option>
-                  )}
-                </select>
+                  Remove
+                </button>
               </div>
-              <div>
-                <label
-                  className="text-sm font-medium leading-6 text-gray-900"
-                  htmlFor={`ingredient-${name}-quantity`}
-                >
-                  Quantity:
-                </label>
-                <input
-                  type="number"
-                  id={`ingredient-${name}-quantity`}
-                  name="quantity"
-                  value={ingredient.quantity}
-                  onChange={(e) => handleChangeIngredient(e, name)}
-                />
-              </div>
-              <div>
-                <span className="text-sm font-medium leading-6 text-gray-900">
-                  Price:
-                </span>
-                <div>{calculateIngredientPrice(ingredient).toFixed(2)}</div>
-              </div>
-              <button
-                type="button"
-                onClick={() => handleRemoveIngredient(name)}
-              >
-                Remove
-              </button>
             </div>
           ))}
         </div>
         <button
-          className="flex justify-center items-center m-auto mt-5 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="flex justify-center rounded-md bg-emerald-800 px-3 py-1.5 
+            text-sm font-semibold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           type="submit"
         >
           Submit

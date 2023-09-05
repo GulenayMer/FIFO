@@ -25,7 +25,7 @@ const InventoryItemForm = () => {
   };
 
   return (
-    <div className="flex align-middle items-center justify-between flex-col py-5 px-5 gap-5 w-[80%] m-auto border-gray-300 shadow-md rounded-lg">
+    <div className="flex align-middle items-center justify-between flex-col py-5 px-5 gap-5 w-[90%] m-auto border-gray-300 shadow-md rounded-lg bg-slate-50 mt-20">
       <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
         Please add your item here:
       </h2>
@@ -43,7 +43,7 @@ const InventoryItemForm = () => {
             </label>
             <div className="mt-2">
               <input
-                className="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-700 sm:text-sm sm:leading-6"
                 type="text"
                 name="name"
                 value={formState.name}
@@ -62,7 +62,7 @@ const InventoryItemForm = () => {
             </label>
             <div className="mt-2">
               <input
-                className="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-700 sm:text-sm sm:leading-6"
                 type="text"
                 name="quantity"
                 value={formState.quantity}
@@ -81,7 +81,7 @@ const InventoryItemForm = () => {
             </label>
             <div className="mt-2">
               <select
-                className=" w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className=" w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-700 sm:text-sm sm:leading-6"
                 id="measurement"
                 name="measurement"
                 type="text"
@@ -106,7 +106,7 @@ const InventoryItemForm = () => {
             </label>
             <div className="mt-2">
               <input
-                className=" w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className=" w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-700 sm:text-sm sm:leading-6"
                 type="text"
                 name="price"
                 value={formState.price}
@@ -125,7 +125,7 @@ const InventoryItemForm = () => {
             </label>
             <div className="mt-2">
               <select
-                className=" w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className=" w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-700 sm:text-sm sm:leading-6"
                 id="category"
                 name="category"
                 onChange={handleInventoryFormChange}
@@ -161,7 +161,7 @@ const InventoryItemForm = () => {
             <div className="mt-2">
               {/* <Headless setFormState={setFormState} /> */}
               <select
-                className=" w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className=" w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-700 sm:text-sm sm:leading-6"
                 id="season"
                 name="season"
                 onChange={handleInventoryFormChange}
@@ -178,8 +178,10 @@ const InventoryItemForm = () => {
           </div>
         </div>
         <div className="">
-          <button className="flex w-full justify-center rounded-md bg-emerald-800 px-3 py-1.5 
-		  text-sm font-semibold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          <button
+            className="flex w-full justify-center rounded-md bg-emerald-800 px-3 py-1.5 
+		  text-sm font-semibold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
             Add Item
           </button>
         </div>

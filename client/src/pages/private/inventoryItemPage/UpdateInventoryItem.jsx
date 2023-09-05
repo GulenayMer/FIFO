@@ -52,7 +52,7 @@ const UpdateInventoryItem = ({ id }) => {
         </td>
       </tr>
       <tr>
-        <td className="px-4 py-5 border-b border-gray-200 bg-white text-sm">
+        <td className="px-2 py-5 border-b border-gray-200 bg-white text-sm">
           <label
             className="sr-only"
             htmlFor="name"
@@ -60,6 +60,7 @@ const UpdateInventoryItem = ({ id }) => {
             Item:
           </label>
           <input
+            className="rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-700 sm:text-sm sm:leading-6"
             type="text"
             name="name"
             value={updatedItem?.name || ''}
@@ -76,6 +77,7 @@ const UpdateInventoryItem = ({ id }) => {
             Quantity:
           </label>
           <input
+            className="rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-700 sm:text-sm sm:leading-6"
             type="text"
             name="quantity"
             value={updatedItem?.quantity || ''}
@@ -92,6 +94,7 @@ const UpdateInventoryItem = ({ id }) => {
             Measurement:
           </label>
           <select
+            className=" w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-700 sm:text-sm sm:leading-6"
             id="measurement"
             name="measurement"
             onChange={handleInputUpdate}
@@ -113,6 +116,7 @@ const UpdateInventoryItem = ({ id }) => {
             Category:
           </label>
           <select
+            className="rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-700 sm:text-sm sm:leading-6"
             id="category"
             name="category"
             onChange={handleInputUpdate}
@@ -146,6 +150,7 @@ const UpdateInventoryItem = ({ id }) => {
           </label>
           {/* <Headless setFormState={setFormState} /> */}
           <select
+            className="rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-700 sm:text-sm sm:leading-6"
             id="season"
             name="season"
             onChange={handleInputUpdate}
@@ -168,6 +173,7 @@ const UpdateInventoryItem = ({ id }) => {
             price:
           </label>
           <input
+            className="rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-700 sm:text-sm sm:leading-6"
             type="text"
             name="price"
             value={updatedItem?.price || ''}
@@ -176,16 +182,16 @@ const UpdateInventoryItem = ({ id }) => {
             form="updateForm"
           />
         </td>
-        <td className="px-4 py-5 border-b border-gray-200 bg-white text-sm">
-		<label
+        <td className="flex justify-center items-center px-4 py-5 border-b border-gray-200 bg-white text-sm">
+          <label
             className="sr-only"
             htmlFor="action"
           >
             action:
           </label>
           <button
-                                        className="flex w-full justify-center rounded-md bg-slate-600 px-3 py-1.5 text-sm font-semibold 
-                                        leading-6 text-white shadow-sm hover:bg-slate-500  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className=" rounded-md bg-slate-600 px-3 py-1.5 text-sm font-semibold 
+            leading-6 text-white shadow-sm hover:bg-slate-500  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             onClick={handleSubmit}
             form="updateForm"
           >

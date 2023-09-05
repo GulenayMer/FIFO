@@ -166,7 +166,7 @@ const DishForm = () => {
   };
 
   return (
-    <div className="flex align-middle items-center justify-between flex-col py-5 px-5 gap-5 w-[80%] m-auto border-gray-300 shadow-md rounded-lg">
+    <div className="flex align-middle items-center justify-between flex-col py-5 px-5 gap-5 w-[80%] m-auto border-gray-300 shadow-md rounded-lg bg-red-700">
       <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
         Please add your dish here:
       </h2>
