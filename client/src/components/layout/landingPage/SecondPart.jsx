@@ -25,7 +25,7 @@ const SecondPart = () => {
 		</div>
 			<Link to="" className="inline-flex items-center justify-center px-5 py-1  font-medium  text-gray-900 border
 			border-gray-300 rounded-lg hover:bg-gray-100">
-                Try for free
+                Send
 				<span className='ml-1'>
 					<HiOutlineArrowNarrowRight/>
 				</span>						
