@@ -1,11 +1,10 @@
 import { useState } from 'react'
 import { Tab } from '@headlessui/react'
-import placeholder from '../../../assets/avatar.png';
 import {HiOutlineArrowNarrowRight} from 'react-icons/hi'
 import {Link} from 'react-router-dom'
-import ingredients from './landingPagePics/ingredients.jpg'
-import dish from "./landingPagePics/dish.jpg"
-import menu from "./landingPagePics/menu.jpg"
+import ingredient from './landingPagePics/ingredient.jpg'
+import dish2 from "./landingPagePics/dish2.jpg"
+import menu2 from "./landingPagePics/menu2.jpg"
 
 
 function classNames(...classes) {
@@ -18,7 +17,7 @@ export default function Tabs() {
     {
         id: 1,
         title: 'Inventory Collection',
-		image:ingredients ,
+		image: ingredient ,
 		description: 'Lists your inventory, you can pick how much of an ingredient you want to use, and keeps track of changing prizes over time.', 
 
     },
@@ -27,7 +26,7 @@ export default function Tabs() {
     {
         id: 1,
         title: 'Dish Collection',
-		image: dish ,
+		image: dish2 ,
 		description: 'In the dish collection, you can pick ingredients from your inventory, that you need to create your dish. The dish collection will calculate the prize for one dish and add it to your list of dishes.', 
     },
     ],
@@ -35,7 +34,7 @@ export default function Tabs() {
     {
         id: 1,
         title: 'Menu Collection',
-		image: menu,
+		image: menu2,
 		description: 'The Menu collection offers you to create menus with your created dishes. Filtering them by season, allergies etc.', 
     },
     ],
@@ -44,7 +43,7 @@ export default function Tabs() {
   return (
     <div className="w-full max-w-md px-2 py-16 sm:px-0">
       <Tab.Group>
-        <Tab.List className="flex space-x-1 rounded-xl bg-gray-900/80 p-1">
+        <Tab.List className="flex space-x-1 rounded-xl bg-orange-400 p-1">
           {Object.keys(categories).map((category) => (
             <Tab
               key={category}
@@ -52,8 +51,8 @@ export default function Tabs() {
                 classNames(
                   'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-gray-200',
                   selected
-                    ? 'bg-gray-600 shadow'
-                    : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'
+                    ? 'bg-orange-500 shadow focus:outline-none'
+                    : 'text-blue-100 hover:bg-orange-600 hover:text-white '
                 )
               }
             >
@@ -64,23 +63,24 @@ export default function Tabs() {
         <Tab.Panels className="mt-2">
           {Object.values(categories).map((posts, idx) => (
             <Tab.Panel
-              key={idx}
-              className={classNames(
+            key={idx}
+            className={classNames(
                 'rounded-xl bg-white p-3',
-                
-              )}
+        )}
             >
             {posts.map((post) => (
-    		<div  key={post.id} className="flex flex-col items-center justify-center max-w-md rounded-lg shadow-md ">
-    			<a href="#">
-        		<img className="rounded-t-lg " src={post.image} alt="" width={400}/>
-    			</a>
-    	<div className="p-2 text-center">
+			<div  key={post.id} className="flex flex-col items-center justify-center max-w-md  ">
+				<a className='' >
+				<img className="object-cover object-center w-full h-70" src={post.image} alt="image"  />
+				</a>
+			<div className="p-2 text-center">
         <a href="#">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">{post.title}</h5>
         </a>
         <p className="mb-3 font-normal text-gray-700">{post.description}</p>
-        <Link to='' className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        <Link to='' className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white 
+		bg-gradient-to-r from-pink-400 to-yellow-500 
+		rounded-lg hover:from-pink-300 hover:to-yellow-400  focus:outline-none ">
             Read more
 			<span className='ml-2'><HiOutlineArrowNarrowRight/></span>
         </Link>
