@@ -7,7 +7,7 @@ import Contact from '../pages/Contact';
 import Error from '../pages/Error';
 import LoginForm from '../components/forms/LoginForm';
 import RegisterForm from '../components/forms/RegisterForm';
-import DishForm from '../components/forms/DishForm';
+import DishForm2 from '../components/forms/DishForm2';
 import ProtectedRoute from '../components/layout/ProtectedRoute';
 
 import { createBrowserRouter } from 'react-router-dom';
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/dish',
-        element: <DishForm />,
+        element: <DishForm2 />,
       },
       {
         path: '/inventoryItems',
