@@ -10,7 +10,6 @@ const InventoryItems = () => {
         <InventoryItemForm />
 
         <InventoryItemTable />
-        <UpdateInventoryItem />
       </div>
     </DefaultLayout>
   );

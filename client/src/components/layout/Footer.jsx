@@ -6,7 +6,7 @@ const Footer = () => {
           © 2023
           <a
             href="#"
-            className="hover:underline"
+            className="hover:underline "
           >
             FIFOTEAM™
           </a>
@@ -15,7 +15,7 @@ const Footer = () => {
           <li>
             <a
               href="#"
-              className="mr-4 hover:underline md:mr-6 "
+              className="mr-4 hover:underline md:mr-6 hover:text-fuchsia-400"
             >
               About
             </a>
@@ -23,7 +23,7 @@ const Footer = () => {
           <li>
             <a
               href="#"
-              className="hover:underline"
+              className="hover:underline  hover:text-fuchsia-400"
             >
               Contact
             </a>

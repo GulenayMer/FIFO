@@ -8,10 +8,10 @@ const SecondPart = () => {
     <div className="grid max-w-screen-xl px-10 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
         <div className="mr-auto ml-5 place-self-center lg:col-span-7">
             <h2 className="max-w-2xl mb-4 text-4xl  tracking-tight leading-none md:text-5xl xl:text-6xl">
-				Send Us an Email 
+				Send us an email 
 			</h2>
-            <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl">
-					Our Team is reaching out to you 
+            <p className="max-w-2xl mb-6 ml-2 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl">
+					Our Team will reach out to you 
 			</p>
 			<div className='flex flex-row justify-center gap-4'>
 			<div className=" relative max-w-xs">
@@ -21,12 +21,14 @@ const SecondPart = () => {
 				</span>
 			</p>
 			<input placeholder="Type your email" type="search" 
-				className="border border-gray-300 sm:text-sm w-full rounded-lg pt-2 pb-2 pl-10 px-3 py-2"/>
+				className="border   focus:shadow-none
+				placeholder:text-gray-400 focus:ring-2 focus:ring-inset 
+				focus:ring-orange-500 sm:text-sm w-full rounded-lg pt-2 pb-2 pl-10 px-3 py-2"/>
 		</div>
-			<Link to="" className="inline-flex items-center justify-center px-5 py-1  font-medium  text-gray-900 border
-			border-gray-300 rounded-lg hover:bg-gray-100">
-                Try for free
-				<span className='ml-1'>
+			<Link to="" className="inline-flex items-center justify-center px-5 py-1  font-medium border
+			border-gray-300 rounded-lg bg-orange-400  hover:bg-orange-500 text-white cursor-pointer">
+                Send
+				<span className='ml-1 group-hover:rotate-90 duration-300'>
 					<HiOutlineArrowNarrowRight/>
 				</span>						
             </Link> 

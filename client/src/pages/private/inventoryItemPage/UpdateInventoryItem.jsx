@@ -106,6 +106,7 @@ const UpdateInventoryItem = ({ id }) => {
             <option value="Kilogram">Kilogram</option>
             <option value="Milliliter">Milliliter</option>
             <option value="Liter">Liter</option>
+            <option value="Unit">Unit</option>
           </select>
         </td>
         <td className="px-4 py-5 border-b border-gray-200 bg-white text-sm">

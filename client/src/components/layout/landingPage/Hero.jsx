@@ -23,7 +23,7 @@ const Hero = () => {
         <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
         	<Link to=''  
 			className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center
-			text-white bg-gray-800  rounded-lg  hover:bg-gray-600">
+			text-white bg-gray-800  rounded-lg  hover:bg-gray-600 cursor-pointer">
             Learn more 
           </Link>
 		  <Link to="" smooth duration={500} 

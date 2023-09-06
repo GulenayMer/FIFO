@@ -1,4 +1,4 @@
-import Logo from '../assets/Avatar.png'
+import avatar from '../assets/avatar.png'
 import { AuthContext } from '../context/Auth';
 import { useContext } from 'react';
 import {HiHand} from 'react-icons/hi'
@@ -34,7 +34,7 @@ function Navbar() {
 							<HiHand></HiHand>
 					</span>
 					<p className="font-semibold text-sm mr-2">Hi, {user?.name}</p>
-					<img src={Logo}
+					<img src={avatar}
 					  className="object-cover btn- h-9 w-9 rounded-full mr-2 bg-gray-200" alt="" />
 				  </div>
 				</div>

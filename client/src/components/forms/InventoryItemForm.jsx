@@ -1,6 +1,5 @@
 import { useState, useContext } from 'react';
 import { AuthContext } from '../../context/Auth';
-import Headless from './Headless';
 
 const InventoryItemForm = () => {
   const context = useContext(AuthContext);
@@ -93,6 +92,7 @@ const InventoryItemForm = () => {
                 <option value="Kilogram">Kilogram</option>
                 <option value="Milliliter">Milliliter</option>
                 <option value="Liter">Liter</option>
+                <option value="Unit">Unit</option>
               </select>
             </div>
           </div>
