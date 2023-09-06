@@ -136,7 +136,9 @@ const DishForm2 = () => {
     }));
 
     finalDish.price = finalDish.ingredients.reduce((acc, item) => {
-      return acc + item.price;
+		const base = acc + item.price;
+		const total = base * 3 * 0.19;
+      return total;
     }, 0);
 
     console.log('final dish', finalDish);

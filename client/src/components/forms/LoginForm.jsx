@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../../context/Auth';
-import { Link, Navigate, redirect } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import key from '../../assets/key.svg';
 
 const LoginForm = () => {
@@ -107,6 +107,12 @@ const LoginForm = () => {
             to="/register"
           >
             Not Registered?
+          </Link>
+		  <Link
+            className="block mt-5 text-center text-sm text-gray-500"
+            to="/"
+          >
+            Back Home
           </Link>
         </div>
       </div>
