@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { AuthContext } from '../../context/Auth';
-import Headless from './Headless';
+
 
 const InventoryItemForm = () => {
   const context = useContext(AuthContext);
