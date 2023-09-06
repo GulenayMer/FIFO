@@ -80,78 +80,101 @@ const MenuForm = () => {
   };
 
   return (
-    <div className='flex align-middle items-center justify-between flex-col py-2 px-5 gap-2 w-[80%] m-auto
-		border-gray-300 shadow-md rounded-lg'>
-	<h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+    <div
+      className="flex align-middle items-center justify-between flex-col py-4 px-6 gap-4  w-[80%] m-auto
+		border-gray-300 shadow-md bg-gray-200/70 rounded-lg"
+    >
+      <h2 className="mt-10 text-center  text-2xl font-bold leading-9 tracking-tight text-gray-900">
         Please add your dish here:
-	</h2>
-	<form onSubmit={handleMenuFormSubmit}
-	className="flex align-middle justify-center items-center flex-col w-full pb-10 gap-3"
-		>
-		<div className="flex align-middle items-center justify-between py-5 px-5 gap-5">
-			<div  className="flex align-middle justify-baseline items-center gap-3">
-				<label htmlFor="name" className="text-gray-600">
-					Menu Name:
-				</label>
-			</div>
-			<div>
-				<input
-					className="w-80 m-4 border-2 border-gray-400 rounded-md 
+      </h2>
+      <form
+        onSubmit={handleMenuFormSubmit}
+        className="flex align-middle justify-center items-center flex-col w-full pb-10 gap-4"
+      >
+        <div className="flex align-middle items-center justify-between py-5 px-5 gap-5">
+          <div className="flex align-middle justify-baseline items-center py-4 px-6 gap-4">
+            <label
+              htmlFor="name"
+              className="text-gray-600"
+            >
+              Menu Name:
+            </label>
+          </div>
+          <div>
+            <input
+              className="w-80 m-4 border-2 border-gray-400 rounded-md 
 					focus:outline-none focus:ring-1 focus:ring-orange-300 focus:invalid:border-orange-500"
-					type="text"
-					name="name"
-					value={menu.name}
-					onChange={handleMenuNameChange}
-					required
-				/>
-			</div>
-		</div>
-		<div className="flex align-middle justify-baseline items-center gap-3">
-			<div className='text-sm font-medium leading-6 text-gray-900'>
-				<label htmlFor="category" className="text-gray-600">Dishes:</label>
-			</div>
-			<div className="mt-2 w-80 ml-8">
-			<ReactSearchAutocomplete
-				items={dishes}
-				maxResults={15}
-				onSearch={handleOnSearch}
-				onHover={handleOnHover}
-				onSelect={handleOnSelect}
-				onFocus={handleOnFocus}
-				onClear={handleOnClear}
-				inputProps={{
-					style: {
-					  outline: "none",
-					  // Add any other custom styling here
-					},
-				  }}
-				fuseOptions={{ keys: ['name'] }}/>
-			</div>
-		</div>
-		<div className='flex w-full justify-center items-center mx-auto '>
-		<button
-          className="rounded-md bg-emerald-600 px-5 py-1.5 
+              type="text"
+              name="name"
+              value={menu.name}
+              onChange={handleMenuNameChange}
+              required
+            />
+          </div>
+        </div>
+        <div className="flex align-middle justify-baseline items-center gap-3">
+          <div className="text-sm font-medium leading-6 text-gray-900">
+            <label
+              htmlFor="category"
+              className="text-gray-600"
+            >
+              Dishes:
+            </label>
+          </div>
+          <div className="mt-2 w-80 ml-8">
+            <ReactSearchAutocomplete
+              items={dishes}
+              maxResults={15}
+              onSearch={handleOnSearch}
+              onHover={handleOnHover}
+              onSelect={handleOnSelect}
+              onFocus={handleOnFocus}
+              onClear={handleOnClear}
+              inputProps={{
+                style: {
+                  outline: 'none',
+                  // Add any other custom styling here
+                },
+              }}
+              fuseOptions={{ keys: ['name'] }}
+            />
+          </div>
+        </div>
+        <div className="flex w-full justify-center items-center mx-auto ">
+          <button
+            className="rounded-md bg-emerald-600 px-5 py-1.5 
 		  text-sm font-semibold leading-6 text-white shadow-sm hover:bg-emerald-700 "
-          onClick={addDishToMenu} // Add the selected dish to the menu
-        >
-          Add Dish
-        </button>
-		</div>
-       
+            onClick={addDishToMenu} // Add the selected dish to the menu
+          >
+            Add Dish
+          </button>
+        </div>
 
         {/* Display selected dishes */}
         {selectedDishes.length > 0 && (
           <div className="flex  justify-between border-2 w-[50%] px-10">
-			<h4 htmlFor="category" className="text-red-600">Selected Dishes:</h4>
-            <ul className=''>
+            <h4
+              htmlFor="category"
+              className="text-red-600"
+            >
+              Selected Dishes:
+            </h4>
+            <ul className="">
               {selectedDishes.map((dish) => (
-                <li key={dish._id} className='italic capitalize'>{dish.name}</li>
+                <li
+                  key={dish._id}
+                  className="italic capitalize"
+                >
+                  {dish.name}
+                </li>
               ))}
             </ul>
           </div>
         )}
-        <button className="bg-emerald-800 rounded-md
-		text-sm font-semibold leading-6 text-white shadow-sm px-3 py-1 my-10">
+        <button
+          className="bg-emerald-800 rounded-md
+		text-sm font-semibold leading-6 text-white shadow-sm px-3 py-1 my-10"
+        >
           Submit
         </button>
       </form>

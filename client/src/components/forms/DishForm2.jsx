@@ -136,8 +136,8 @@ const DishForm2 = () => {
     }));
 
     finalDish.price = finalDish.ingredients.reduce((acc, item) => {
-		const base = acc + item.price;
-		const total = base * 3 * 0.19;
+      const base = acc + item.price;
+      const total = base * 3 * 0.19;
       return total;
     }, 0);
 
@@ -147,7 +147,7 @@ const DishForm2 = () => {
   };
 
   return (
-    <div className="flex align-middle items-center justify-between flex-col py-5 px-5 gap-5 w-[80%] mt-16 m-auto border-gray-300 shadow-md rounded-lg bg-slate-50">
+    <div className="flex align-middle items-center justify-between flex-col py-5 px-5 gap-5 w-[80%] mt-16 m-auto border-gray-300 shadow-md rounded-lg bg-gray-200/70">
       <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
         Please add your dish here:
       </h2>
@@ -210,7 +210,7 @@ const DishForm2 = () => {
             className="text-sm font-medium leading-6 text-gray-900"
             htmlFor="allergenics"
           >
-            Alleghenies:
+            Allergenics:
           </label>
           <select
             className="rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-800 sm:text-sm sm:leading-6"

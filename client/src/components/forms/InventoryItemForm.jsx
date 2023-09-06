@@ -24,7 +24,7 @@ const InventoryItemForm = () => {
   };
 
   return (
-    <div className="flex align-middle items-center justify-between flex-col py-5 px-5 gap-5 w-[90%] m-auto border-gray-300 shadow-md rounded-lg bg-slate-50 mt-20">
+    <div className="flex align-middle items-center justify-between flex-col py-5 px-5 gap-5 w-[90%] m-auto border-gray-300 shadow-md rounded-lg bg-gray-200/70 mt-20">
       <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
         Please add your item here:
       </h2>
