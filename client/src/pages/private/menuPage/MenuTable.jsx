@@ -79,7 +79,7 @@ const MenuAll = () => {
 			  maxWidth: "", 
 			  margin: "0 auto", 
 			  overflow: "hidden",
-			  backgroundColor: "#ffedd5"
+			  backgroundColor: "#D3D3D3",
 			},
 		  }}
       >
@@ -124,7 +124,8 @@ const MenuAll = () => {
           
 			 <button
 			 onClick={captureAndDownloadImage}
-              className=" mt-5 bg-purple-800 text-gray-50 px-3 py-2 rounded-lg hover:bg-purple-600 cursor-pointer"
+              className=" mt-5 bg-gradient-to-r from-pink-400 to-yellow-500  text-gray-50 px-3 py-2 rounded-lg
+			  hover:from-pink-300 hover:to-yellow-400 cursor-pointer"
             >
               Download as Image
             </button>
