@@ -6,14 +6,12 @@
 
 #root {
   height: 100vh;
-  background-color: #e5e7eb;
 }
 
-
-@layer base{
-	html{
-		font-family: 'Lato', sans-serif;
-		font-family: 'Oswald', sans-serif;
-		font-family: 'Poppins', sans-serif;
-	}
+@layer base {
+  html {
+    font-family: 'Lato', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Poppins', sans-serif;
+  }
 }
